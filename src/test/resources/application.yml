@@ -28,6 +28,6 @@ spring:
       max-active: 8
       max-idle: 8
 server:
-  port: 8080
+  port: 48080
 
 
