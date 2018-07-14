@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: cloud-user
+eureka:
+  client:
+    enabled: true

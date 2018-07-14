@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 APP_NAME=cloud-user.jar
-APP_URL=http://192.168.1.131:8911/view/cloud/job/cloud-user/ws/target/cloud-user-1.0.0.jar
+APP_URL=http://192.168.1.131:8911/view/cloud/job/cloud-user/ws/target/cloud-user.jar
 SERVER_PORT=48080
 RUN_ENV=default
 EUREKA_HOST=http://localhost:8761/eureka/
