@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: user
+  cloud:
+    config:
+      enabled: flase  #启用配置中心
+      discovery:
+        enabled: flase #启用配置发现
+        service-id: CONFIG #配置中心服务名
+eureka:
+  instance:
+    non-secure-port: 18080
+  client:
+    service-url:
+      defaultZone: http://client:ps123456@localhost:8761/eureka/ #注册中心服务器
