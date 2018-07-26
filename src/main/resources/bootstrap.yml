@@ -9,7 +9,7 @@ spring:
         service-id: CONFIG #配置中心服务名
 eureka:
   instance:
-    non-secure-port: 48080
+    non-secure-port: ${server.port}
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/ #注册中心服务器
