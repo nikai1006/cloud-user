@@ -30,4 +30,4 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.1.131:8761/eureka/ #注册中心服务器
+      defaultZone: http://dev.nikai.net.cn:8761/eureka/ #注册中心服务器
