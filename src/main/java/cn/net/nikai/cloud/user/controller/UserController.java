@@ -1,22 +1,16 @@
 package cn.net.nikai.cloud.user.controller;
 
-import cn.net.nikai.cloud.user.entitry.User;
+import cn.net.nikai.cloud.user.dto.User;
 import cn.net.nikai.cloud.user.service.UserService;
 import com.jiatui.spi.ServiceResponse;
 import com.jiatui.spi.enums.ResponseErrorCodeEnum;
 import com.jiatui.spi.util.JsonFactory;
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 服务发布器
@@ -32,6 +26,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     *
+     * @return
+     */
     @GetMapping(value = "/all-users/query")
     @ResponseBody
     public ServiceResponse<List<User>> queryUsers() {

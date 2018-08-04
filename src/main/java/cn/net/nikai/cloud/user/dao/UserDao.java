@@ -1,8 +1,9 @@
 package cn.net.nikai.cloud.user.dao;
 
 
+import cn.net.nikai.cloud.user.dto.User;
+
 import java.util.List;
-import cn.net.nikai.cloud.user.entitry.User;
 /**
  *
 * @author nikai

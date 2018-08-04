@@ -1,6 +1,7 @@
 package cn.net.nikai.cloud.user.service;
 
-import cn.net.nikai.cloud.user.entitry.User;
+import cn.net.nikai.cloud.user.dto.User;
+
 import java.util.List;
 
 /**
