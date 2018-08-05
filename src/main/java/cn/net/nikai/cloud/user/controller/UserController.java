@@ -79,6 +79,34 @@ public class UserController {
         }
     }
 
+    /**
+     * <pre>
+     *     根据用户id和用户名查询用户信息
+     * <pre>
+     * @service 根据用户id和用户名查询用户信息
+     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.findUser
+     * @param java.lang.Long{userId:required}:用户id
+     * @param java.lang.String{userName}:用户姓名
+     * @scene 新增用户;前端;商城业务
+     * @domain BASE
+     * @serviceType QUERY
+     * @returnDataType com.jiatui.spi.ServiceResponse<cn.net.nikai.cloud.user.dto.User:用户信息>:返回消息
+     * @version 1.0.0
+     * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;42021:无效的id;
+     */
+    @GetMapping("/user/find")
+    @ResponseBody
+    public ServiceResponse<User> findUser(Long userId,String userName){
+        log.info("input params: id={},name={}", userId,userName);
+        try {
+            User user = userService.queryOne(userId);
+            return new ServiceResponse<User>(user);
+        } catch (Exception e) {
+            log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(), e);
+            return new ServiceResponse<User>(ResponseErrorCodeEnum.SYSTEM_ERR);
+        }
+    }
+
 
     /**
      * <pre>
