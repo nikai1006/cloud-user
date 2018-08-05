@@ -19,6 +19,7 @@ import java.util.List;
  * @version 1.0.0
  */
 @RestController
+@CrossOrigin
 public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
@@ -27,8 +28,17 @@ public class UserController {
     private UserService userService;
 
     /**
-     *
-     * @return
+     * <pre>
+     *     查询所有的用户信息
+     * <pre>
+     * @service 所有用户信息查询
+     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.queryUsers
+     * @scene 新增用户;前端;商城业务
+     * @domain BASE
+     * @serviceType QUERY
+     * @returnDataType com.jiatui.spi.ServiceResponse<java.util.List<cn.net.nikai.cloud.user.dto.User>>
+     * @version 1.0.0
+     * @returnCode 0:成功;1:系统异常; 41003:参数失败;2:操作繁忙;42020:无效的用户备注;
      */
     @GetMapping(value = "/all-users/query")
     @ResponseBody
@@ -44,20 +54,27 @@ public class UserController {
 
     /**
      * <pre>
-     *     query one user
-     * </pre>
-     * @param id userId
-     * @return user
+     *     根据用户id查询用户信息
+     * <pre>
+     * @service 根据用户id查询用户信息
+     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.queryOne
+     * @param java.lang.Long
+     * @scene 新增用户;前端;商城业务
+     * @domain BASE
+     * @serviceType QUERY
+     * @returnDataType com.jiatui.spi.ServiceResponse<cn.net.nikai.cloud.user.dto.User>
+     * @version 1.0.0
+     * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;42021:无效的id;
      */
     @GetMapping("/user/query")
     @ResponseBody
     public ServiceResponse<User> queryUserById(@RequestParam Long id) {
-        log.info("input params: id={}",id);
+        log.info("input params: id={}", id);
         try {
-            User user= userService.queryOne(id);
+            User user = userService.queryOne(id);
             return new ServiceResponse<User>(user);
         } catch (Exception e) {
-            log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(),e);
+            log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(), e);
             return new ServiceResponse<User>(ResponseErrorCodeEnum.SYSTEM_ERR);
         }
     }
@@ -65,11 +82,17 @@ public class UserController {
 
     /**
      * <pre>
-     *     save user
-     * </pre>
-     *
-     * @param user user
-     * @return response
+     *     新增一个用户
+     * <pre>
+     * @service 新增用户
+     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.saveUser
+     * @param cn.net.nikai.cloud.user.dto.User
+     * @scene 前端;商城业务
+     * @domain BASE
+     * @serviceType COMMAND
+     * @returnDataType com.jiatui.spi.ServiceResponse<java.lang.String>
+     * @version 1.0.0
+     * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
      */
     @PostMapping(value = "/user/add")
     @ResponseBody
@@ -86,29 +109,48 @@ public class UserController {
 
     /**
      * <pre>
-     *     update user
-     * </pre>
-     * @param user user
-     * @return result
+     *     修改用户信息
+     * <pre>
+     * @service 修改用户信息
+     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.updateUser
+     * @param cn.net.nikai.cloud.user.dto.User
+     * @scene 前端;商城业务
+     * @domain BASE
+     * @serviceType COMMAND
+     * @returnDataType com.jiatui.spi.ServiceResponse
+     * @version 1.0.0
+     * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
      */
     @PostMapping("/user/update")
     @ResponseBody
-    public ServiceResponse updateUser(@RequestBody User user)
-    {
+    public ServiceResponse updateUser(@RequestBody User user) {
         try {
             log.info("input params:{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
             userService.update(user);
             return new ServiceResponse();
         } catch (Exception e) {
             log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(), e);
-            return new ServiceResponse<>(ResponseErrorCodeEnum.SYSTEM_ERR);
+            return new ServiceResponse(ResponseErrorCodeEnum.SYSTEM_ERR);
         }
     }
 
+    /**
+     * <pre>
+     *     删除用户
+     * <pre>
+     * @service 删除用户
+     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.delUser
+     * @param cn.net.nikai.cloud.user.dto.User
+     * @scene 前端;商城业务
+     * @domain BASE
+     * @serviceType COMMAND
+     * @returnDataType com.jiatui.spi.ServiceResponse
+     * @version 1.0.0
+     * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
+     */
     @PostMapping("/user/delete")
     @ResponseBody
-    public ServiceResponse delUser(@RequestBody User user)
-    {
+    public ServiceResponse delUser(@RequestBody User user) {
         try {
             log.info("input params:{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
             userService.delete(user);

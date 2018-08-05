@@ -1,15 +1,16 @@
 package cn.net.nikai.cloud.user.service.impl;
 
 import cn.net.nikai.cloud.user.dao.UserDao;
-import cn.net.nikai.cloud.user.entitry.User;
+import cn.net.nikai.cloud.user.dto.User;
 import cn.net.nikai.cloud.user.exception.AppException;
 import cn.net.nikai.cloud.user.service.UserService;
 import com.jiatui.spi.util.JsonFactory;
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author nikai

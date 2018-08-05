@@ -20,6 +20,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <my.package.value>cn.net.nikai.cloud.user.controller</my.package.value>
+        <my.project.value>${artifactId}</my.project.value>
     </properties>
     <dependencies>
         <dependency>
@@ -99,7 +100,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.0.0-M1</version>
                 <configuration>
-                    <subpackages>${my.package.value}</subpackages>
+                    <subpackages>${my.package.value}:[${my.project.value}]</subpackages>
                     <show>private</show>
                     <nohelp>true</nohelp>
                     <doclet>cn.net.nikai.api.doclet.ServiceDoclet</doclet>

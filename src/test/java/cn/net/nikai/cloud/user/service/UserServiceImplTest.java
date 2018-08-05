@@ -1,7 +1,8 @@
 package cn.net.nikai.cloud.user.service;
 
-import java.util.List;
-
+import cn.net.nikai.cloud.user.dto.User;
+import cn.net.nikai.cloud.user.service.impl.UserServiceImpl;
+import cn.net.nikai.cloud.user.util.LogUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import cn.net.nikai.cloud.user.entitry.User;
-import cn.net.nikai.cloud.user.service.impl.UserServiceImpl;
-import cn.net.nikai.cloud.user.util.LogUtil;
+import java.util.List;
 
 /**
  * {@link UserService}测试
@@ -41,7 +40,7 @@ public class UserServiceImplTest {
      * Test {@link UserServiceImpl#addOne(User)}
      *
      * @throws Exception
-     * @see UserServiceImpl#addOne(User)
+     * @see UserServiceImpl#addOne(cn.net.nikai.cloud.user.dto.User)
      */
     @Test
     public void addOne() throws Exception {

@@ -1,7 +1,7 @@
 package cn.net.nikai.cloud.user.dao;
 
-import java.util.List;
-
+import cn.net.nikai.cloud.user.dto.User;
+import cn.net.nikai.cloud.user.util.LogUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import cn.net.nikai.cloud.user.entitry.User;
-import cn.net.nikai.cloud.user.util.LogUtil;
+import java.util.List;
 
 /**
  * {@link UserDao}测试
