@@ -36,7 +36,7 @@ public class UserController {
      * @scene 新增用户;前端;商城业务
      * @domain BASE
      * @serviceType QUERY
-     * @returnDataType com.jiatui.spi.ServiceResponse<java.util.List<cn.net.nikai.cloud.user.dto.User>>
+     * @returnDataType com.jiatui.spi.ServiceResponse<java.util.List<cn.net.nikai.cloud.user.dto.User:用户>>
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常; 41003:参数失败;2:操作繁忙;42020:无效的用户备注;
      */
@@ -58,11 +58,11 @@ public class UserController {
      * <pre>
      * @service 根据用户id查询用户信息
      * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.queryOne
-     * @param java.lang.Long
+     * @param java.lang.Long{id:required}:用户id
      * @scene 新增用户;前端;商城业务
      * @domain BASE
      * @serviceType QUERY
-     * @returnDataType com.jiatui.spi.ServiceResponse<cn.net.nikai.cloud.user.dto.User>
+     * @returnDataType com.jiatui.spi.ServiceResponse<cn.net.nikai.cloud.user.dto.User:用户信息>
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;42021:无效的id;
      */
