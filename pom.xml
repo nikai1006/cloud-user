@@ -95,26 +95,46 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.0-M1</version>
-                <configuration>
-                    <subpackages>${my.package.value}:[${my.project.value}]</subpackages>
-                    <show>private</show>
-                    <nohelp>true</nohelp>
-                    <doclet>cn.net.nikai.api.doclet.ServiceDoclet</doclet>
-                    <docletArtifact>
-                        <groupId>cn.net.nikai.auto-api</groupId>
-                        <artifactId>api-doc-plugin</artifactId>
-                        <version>1.0.0-SNAPSHOT</version>
-                    </docletArtifact>
-                    <useStandardDocletOptions>false</useStandardDocletOptions>
-                    <encoding>UTF-8</encoding>
-                    <docencoding>UTF-8</docencoding>
-                    <breakiterator>true</breakiterator>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>api-doc</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.0.0-M1</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>javadoc</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <subpackages>${my.package.value}:[${my.project.value}]</subpackages>
+                            <show>private</show>
+                            <nohelp>true</nohelp>
+                            <doclet>cn.net.nikai.api.doclet.ControllerDocProcessor</doclet>
+                            <docletArtifact>
+                                <groupId>cn.net.nikai.auto-api</groupId>
+                                <artifactId>api-doc-plugin</artifactId>
+                                <version>1.0.0-SNAPSHOT</version>
+                            </docletArtifact>
+                            <useStandardDocletOptions>false</useStandardDocletOptions>
+                            <encoding>UTF-8</encoding>
+                            <docencoding>UTF-8</docencoding>
+                            <breakiterator>true</breakiterator>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
