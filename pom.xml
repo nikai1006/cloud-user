@@ -19,8 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-        <my.package.value>cn.net.nikai.cloud.user.controller</my.package.value>
-        <my.project.value>${artifactId}</my.project.value>
+        <scan.base.packages>cn.net.nikai.cloud.user.controller</scan.base.packages>
     </properties>
     <dependencies>
         <dependency>
@@ -103,6 +102,9 @@
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
+            <properties>
+                <application.name>${artifactId}</application.name>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -118,7 +120,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <subpackages>${my.package.value}:[${my.project.value}]</subpackages>
+                            <subpackages>${scan.base.packages}:[${application.name}]</subpackages>
                             <show>private</show>
                             <nohelp>true</nohelp>
                             <doclet>cn.net.nikai.api.doclet.ControllerDocProcessor</doclet>
