@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 服务发布器
@@ -32,11 +33,9 @@ public class UserController {
      *     查询所有的用户信息
      * <pre>
      * @service 所有用户信息查询
-     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.queryUsers
      * @scene 新增用户;前端;商城业务
      * @domain BASE
      * @serviceType QUERY
-     * @returnDataType com.jiatui.spi.ServiceResponse<java.util.List<cn.net.nikai.cloud.user.dto.User:用户>>
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常; 41003:参数失败;2:操作繁忙;42020:无效的用户备注;
      */
@@ -57,12 +56,9 @@ public class UserController {
      *     根据用户id查询用户信息
      * <pre>
      * @service 根据用户id查询用户信息
-     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.queryOne
-     * @param java.lang.Long{id:required}:用户id
      * @scene 新增用户;前端;商城业务
      * @domain BASE
      * @serviceType QUERY
-     * @returnDataType com.jiatui.spi.ServiceResponse<cn.net.nikai.cloud.user.dto.User:用户信息>
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;42021:无效的id;
      */
@@ -84,20 +80,16 @@ public class UserController {
      *     根据用户id和用户名查询用户信息
      * <pre>
      * @service 根据用户id和用户名查询用户信息
-     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.findUser
-     * @param java.lang.Long{userId:required}:用户id
-     * @param java.lang.String{userName}:用户姓名
      * @scene 新增用户;前端;商城业务
      * @domain BASE
      * @serviceType QUERY
-     * @returnDataType com.jiatui.spi.ServiceResponse<cn.net.nikai.cloud.user.dto.User:用户信息>:返回消息
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;42021:无效的id;
      */
     @GetMapping("/user/find")
     @ResponseBody
-    public ServiceResponse<User> findUser(Long userId,String userName){
-        log.info("input params: id={},name={}", userId,userName);
+    public ServiceResponse<User> findUser(Long userId, String userName) {
+        log.info("input params: id={},name={}", userId, userName);
         try {
             User user = userService.queryOne(userId);
             return new ServiceResponse<User>(user);
@@ -113,12 +105,9 @@ public class UserController {
      *     新增一个用户
      * <pre>
      * @service 新增用户
-     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.saveUser
-     * @param cn.net.nikai.cloud.user.dto.User
      * @scene 前端;商城业务
      * @domain BASE
      * @serviceType COMMAND
-     * @returnDataType com.jiatui.spi.ServiceResponse<java.lang.String>
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
      */
@@ -140,12 +129,9 @@ public class UserController {
      *     修改用户信息
      * <pre>
      * @service 修改用户信息
-     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.updateUser
-     * @param cn.net.nikai.cloud.user.dto.User
      * @scene 前端;商城业务
      * @domain BASE
      * @serviceType COMMAND
-     * @returnDataType com.jiatui.spi.ServiceResponse
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
      */
@@ -167,12 +153,9 @@ public class UserController {
      *     删除用户
      * <pre>
      * @service 删除用户
-     * @serviceRequestName cn.net.nikai.cloud.user.controller.UserController.delUser
-     * @param cn.net.nikai.cloud.user.dto.User
      * @scene 前端;商城业务
      * @domain BASE
      * @serviceType COMMAND
-     * @returnDataType com.jiatui.spi.ServiceResponse
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
      */
@@ -187,5 +170,32 @@ public class UserController {
             log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(), e);
             return new ServiceResponse<>(ResponseErrorCodeEnum.SYSTEM_ERR);
         }
+    }
+
+    /**
+     * 泛型入参测试接口
+     *
+     * @service 泛型入参测试接口
+     * @domain BASE
+     * @serviceType COMMAND
+     * @returnCode 0:成功
+     */
+    @GetMapping("/api/test")
+    public User testUser(List<User> users) {
+
+        return null;
+    }
+
+    /**
+     * 空返回泛型入参测试接口
+     *
+     * @service 空返回泛型入参测试接口
+     * @domain BASE
+     * @serviceType COMMAND
+     * @returnCode 0:成功
+     */
+    @GetMapping("/api/test2")
+    public void testVoidAPI(Map<String,User> userMap){
+
     }
 }
