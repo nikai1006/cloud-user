@@ -39,6 +39,7 @@ public class UserController {
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常; 41003:参数失败;2:操作繁忙;42020:无效的用户备注;
      * @author 尼凯:keni@aijiatui.com
+     * @return 用户信息列表
      */
     @GetMapping(value = "/all-users/query")
     @ResponseBody
@@ -91,6 +92,7 @@ public class UserController {
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;42021:无效的id;
      * @author 尼凯:keni@aijiatui.com
+     * @return 单个用户信息
      */
     @GetMapping("/user/find")
     @ResponseBody
