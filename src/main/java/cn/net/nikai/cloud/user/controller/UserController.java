@@ -8,6 +8,7 @@ import com.jiatui.spi.util.JsonFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +20,7 @@ import java.util.Map;
  * @author nikai
  * @version 1.0.0
  */
-@RestController
-@CrossOrigin
+@RestController("/ai")
 public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
@@ -171,6 +171,7 @@ public class UserController {
      * @serviceType COMMAND
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
+     * @author keni@aijiatui.com
      */
     @PostMapping("/user/delete")
     @ResponseBody
@@ -193,6 +194,9 @@ public class UserController {
      * @domain BASE
      * @serviceType COMMAND
      * @returnCode 0:成功
+     * @status DEPRECATED
+     * @author keni@aijiatui.com
+     * @author 尼凯
      */
     @GetMapping("/api/test")
     public User testUser(List<User> users) {
@@ -207,6 +211,9 @@ public class UserController {
      * @domain BASE
      * @serviceType COMMAND
      * @returnCode 0:成功
+     * @status DEPRECATED
+     * @author keni@aijiatui.com
+     * @author 尼凯:keni@aijiatui.com
      */
     @GetMapping("/api/test2")
     public void testVoidAPI(Map<String,User> userMap){
