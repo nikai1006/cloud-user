@@ -19,7 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-        <scan.base.packages>cn.net.nikai.cloud.user.controller</scan.base.packages>
+        <api.scan.base.packages>cn.net.nikai.cloud.user.controller</api.scan.base.packages>
     </properties>
     <dependencies>
         <dependency>
@@ -120,7 +120,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <subpackages>${scan.base.packages}:[${application.name}]</subpackages>
+                            <subpackages>${api.scan.base.packages}:[${application.name}]</subpackages>
                             <show>private</show>
                             <nohelp>true</nohelp>
                             <doclet>cn.net.nikai.api.doclet.ControllerDocProcessor</doclet>
