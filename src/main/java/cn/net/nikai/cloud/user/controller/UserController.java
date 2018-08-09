@@ -57,6 +57,7 @@ public class UserController {
      * <pre>
      * @service 根据用户id查询用户信息
      * @scene 新增用户;前端;商城业务
+     * @param id 用户id
      * @domain BASE
      * @serviceType QUERY
      * @version 1.0.0
@@ -80,6 +81,8 @@ public class UserController {
      *     根据用户id和用户名查询用户信息
      * <pre>
      * @service 根据用户id和用户名查询用户信息
+     * @param userId 用户id
+     * @param userName 用户姓名
      * @scene 新增用户;前端;商城业务
      * @domain BASE
      * @serviceType QUERY
@@ -110,6 +113,8 @@ public class UserController {
      * @serviceType COMMAND
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
+     * @author nikai
+     * @return 消息体
      */
     @PostMapping(value = "/user/add")
     @ResponseBody
@@ -130,6 +135,7 @@ public class UserController {
      * <pre>
      * @service 修改用户信息
      * @scene 前端;商城业务
+     * @param user 用户信息
      * @domain BASE
      * @serviceType COMMAND
      * @version 1.0.0
@@ -154,6 +160,7 @@ public class UserController {
      * <pre>
      * @service 删除用户
      * @scene 前端;商城业务
+     * @param user 用户基本信息
      * @domain BASE
      * @serviceType COMMAND
      * @version 1.0.0
