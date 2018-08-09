@@ -38,6 +38,7 @@ public class UserController {
      * @serviceType QUERY
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常; 41003:参数失败;2:操作繁忙;42020:无效的用户备注;
+     * @author 尼凯:keni@aijiatui.com
      */
     @GetMapping(value = "/all-users/query")
     @ResponseBody
@@ -62,6 +63,7 @@ public class UserController {
      * @serviceType QUERY
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;42021:无效的id;
+     * @author 尼凯:keni@aijiatui.com
      */
     @GetMapping("/user/query")
     @ResponseBody
@@ -88,6 +90,7 @@ public class UserController {
      * @serviceType QUERY
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;42021:无效的id;
+     * @author 尼凯:keni@aijiatui.com
      */
     @GetMapping("/user/find")
     @ResponseBody
@@ -140,6 +143,7 @@ public class UserController {
      * @serviceType COMMAND
      * @version 1.0.0
      * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
+     * @author 尼凯:keni@aijiatui.com
      */
     @PostMapping("/user/update")
     @ResponseBody
@@ -183,6 +187,7 @@ public class UserController {
      * 泛型入参测试接口
      *
      * @service 泛型入参测试接口
+     * @param users 用户列表
      * @domain BASE
      * @serviceType COMMAND
      * @returnCode 0:成功
