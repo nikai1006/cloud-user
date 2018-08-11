@@ -5,18 +5,25 @@ import cn.net.nikai.cloud.user.service.UserService;
 import com.jiatui.spi.ServiceResponse;
 import com.jiatui.spi.enums.ResponseErrorCodeEnum;
 import com.jiatui.spi.util.JsonFactory;
+import java.util.List;
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Map;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 服务发布器
  *
- * @author nikai
+ * @author nikai:nikai@126.com
  * @version 1.0.0
  */
 @RestController
@@ -189,8 +196,8 @@ public class UserController {
     /**
      * 泛型入参测试接口
      *
-     * @service 泛型入参测试接口
      * @param users 用户列表
+     * @service 泛型入参测试接口
      * @domain BASE
      * @serviceType COMMAND
      * @returnCode 0:成功
@@ -198,7 +205,7 @@ public class UserController {
      * @author keni@aijiatui.com
      * @author 尼凯
      */
-    @GetMapping("/api/test")
+    @RequestMapping(value = "/api/test", method = RequestMethod.GET)
     public User testUser(List<User> users) {
 
         return null;
@@ -215,8 +222,11 @@ public class UserController {
      * @author keni@aijiatui.com
      * @author 尼凯:keni@aijiatui.com
      */
-    @GetMapping("/api/test2")
-    public void testVoidAPI(Map<String,User> userMap){
+    @RequestMapping(value = "/api/test2", method = {RequestMethod.GET, RequestMethod.POST}, headers = {"name=nikai",
+        "sex=man"}, produces = {
+        MediaType.APPLICATION_JSON_UTF8_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE,
+        MediaType.APPLICATION_RSS_XML_VALUE})
+    public void testVoidAPI(Map<String, User> userMap) {
 
     }
 }
