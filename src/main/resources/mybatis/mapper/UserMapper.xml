@@ -31,7 +31,7 @@
         values(#{name},#{age})
     </insert>
 
-  <update id="update" parameterType="cn.net.nikai.cloud.user.entitry.User">
+  <update id="update" parameterType="cn.net.nikai.cloud.user.dto.User">
     update t_user
     <set>
       <if test="name != null and !&quot;&quot;.equals(name.trim())">

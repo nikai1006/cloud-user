@@ -23,11 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 服务发布器
  *
- * @author nikai:nikai@126.com
- * @version 1.0.0
+ * @author nikai#nikai@126.com
+ * @version 2.0.0
+ * @domain BASE
  */
 @RestController
-@RequestMapping("/ai")
+@RequestMapping(value = "/ai", method = {RequestMethod.DELETE,RequestMethod.DELETE})
 public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
@@ -41,11 +42,13 @@ public class UserController {
      * <pre>
      * @service 所有用户信息查询
      * @scene 新增用户;前端;商城业务
-     * @domain BASE
      * @serviceType QUERY
-     * @version 1.0.0
-     * @returnCode 0:成功;1:系统异常; 41003:参数失败;2:操作繁忙;42020:无效的用户备注;
-     * @author 尼凯:keni@aijiatui.com
+     * @code 0#成功
+     * @code 1#系统异常
+     * @code  41003#参数失败
+     * @code 2#操作繁忙
+     * @code 42020#无效的用户备注;
+     * @author 尼凯#keni@aijiatui.com
      * @return 用户信息列表
      */
     @GetMapping(value = "/all-users/query")
@@ -67,16 +70,19 @@ public class UserController {
      * @service 根据用户id查询用户信息
      * @scene 新增用户;前端;商城业务
      * @param id 用户id
-     * @domain BASE
      * @serviceType QUERY
      * @version 1.0.0
-     * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;42021:无效的id;
-     * @author 尼凯:keni@aijiatui.com
+     * @author 尼凯#keni@aijiatui.com
+     * @code 0#成功
+     * @code 1#系统异常
+     * @code  41003#参数失败
+     * @code 2#操作繁忙
+     * @code 42020#无效的用户备注;
      */
     @GetMapping("/user/query")
     @ResponseBody
     public ServiceResponse<User> queryUserById(@RequestParam Long id) {
-        log.info("input params: id={}", id);
+        log.info("input params# id={}", id);
         try {
             User user = userService.queryOne(id);
             return new ServiceResponse<User>(user);
@@ -97,14 +103,18 @@ public class UserController {
      * @domain BASE
      * @serviceType QUERY
      * @version 1.0.0
-     * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;42021:无效的id;
-     * @author 尼凯:keni@aijiatui.com
+     * @author 尼凯#keni@aijiatui.com
      * @return 单个用户信息
+     * @code 0#成功
+     * @code 1#系统异常
+     * @code  41003#参数失败
+     * @code 2#操作繁忙
+     * @code 42020#无效的用户备注;
      */
     @GetMapping("/user/find")
     @ResponseBody
     public ServiceResponse<User> findUser(Long userId, String userName) {
-        log.info("input params: id={},name={}", userId, userName);
+        log.info("input params# id={},name={}", userId, userName);
         try {
             User user = userService.queryOne(userId);
             return new ServiceResponse<User>(user);
@@ -124,15 +134,19 @@ public class UserController {
      * @domain BASE
      * @serviceType COMMAND
      * @version 1.0.0
-     * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
      * @author nikai
      * @return 消息体
+     * @code 0#成功
+     * @code 1#系统异常
+     * @code  41003#参数失败
+     * @code 2#操作繁忙
+     * @code 42020#无效的用户备注;
      */
     @PostMapping(value = "/user/add")
     @ResponseBody
     public ServiceResponse<String> saveUser(@RequestBody User user) {
         try {
-            log.info("input params:{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
+            log.info("input params#{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
             userService.addOne(user);
             return new ServiceResponse<>("success");
         } catch (Exception e) {
@@ -151,14 +165,18 @@ public class UserController {
      * @domain BASE
      * @serviceType COMMAND
      * @version 1.0.0
-     * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
-     * @author 尼凯:keni@aijiatui.com
+     * @author 尼凯#keni@aijiatui.com
+     * @code 0#成功
+     * @code 1#系统异常
+     * @code  41003#参数失败
+     * @code 2#操作繁忙
+     * @code 42020#无效的用户备注;
      */
     @PostMapping("/user/update")
     @ResponseBody
     public ServiceResponse updateUser(@RequestBody User user) {
         try {
-            log.info("input params:{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
+            log.info("input params#{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
             userService.update(user);
             return new ServiceResponse();
         } catch (Exception e) {
@@ -177,14 +195,18 @@ public class UserController {
      * @domain BASE
      * @serviceType COMMAND
      * @version 1.0.0
-     * @returnCode 0:成功;1:系统异常;41003:参数失败;2:操作繁忙;
      * @author keni@aijiatui.com
+     * @code 0#成功
+     * @code 1#系统异常
+     * @code  41003#参数失败
+     * @code 2#操作繁忙
+     * @code 42020#无效的用户备注;
      */
     @PostMapping("/user/delete")
     @ResponseBody
     public ServiceResponse delUser(@RequestBody User user) {
         try {
-            log.info("input params:{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
+            log.info("input params#{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
             userService.delete(user);
             return new ServiceResponse();
         } catch (Exception e) {
@@ -200,10 +222,14 @@ public class UserController {
      * @service 泛型入参测试接口
      * @domain BASE
      * @serviceType COMMAND
-     * @returnCode 0:成功
      * @status DEPRECATED
      * @author keni@aijiatui.com
      * @author 尼凯
+     * @code 0#成功
+     * @code 1#系统异常
+     * @code  41003#参数失败
+     * @code 2#操作繁忙
+     * @code 42020#无效的用户备注;
      */
     @RequestMapping(value = "/api/test", method = RequestMethod.GET)
     public User testUser(List<User> users) {
@@ -217,10 +243,10 @@ public class UserController {
      * @service 空返回泛型入参测试接口
      * @domain BASE
      * @serviceType COMMAND
-     * @returnCode 0:成功
+     * @code 0#成功
      * @status DEPRECATED
      * @author keni@aijiatui.com
-     * @author 尼凯:keni@aijiatui.com
+     * @author 尼凯#keni@aijiatui.com
      */
     @RequestMapping(value = "/api/test2", method = {RequestMethod.GET, RequestMethod.POST}, headers = {"name=nikai",
         "sex=man"}, produces = {
