@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @domain BASE
  */
 @RestController
-@RequestMapping(value = "/ai", method = {RequestMethod.DELETE,RequestMethod.DELETE})
+@RequestMapping(value = "/ai", method = {RequestMethod.DELETE, RequestMethod.DELETE})
 public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
@@ -45,7 +45,7 @@ public class UserController {
      * @serviceType QUERY
      * @code 0#成功
      * @code 1#系统异常
-     * @code  41003#参数失败
+     * @code 41003#参数失败
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
      * @author 尼凯#keni@aijiatui.com
@@ -76,7 +76,7 @@ public class UserController {
      * @author 尼凯#keni@aijiatui.com
      * @code 0#成功
      * @code 1#系统异常
-     * @code  41003#参数失败
+     * @code 41003#参数失败
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
      */
@@ -108,7 +108,7 @@ public class UserController {
      * @return 单个用户信息
      * @code 0#成功
      * @code 1#系统异常
-     * @code  41003#参数失败
+     * @code 41003#参数失败
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
      */
@@ -139,10 +139,11 @@ public class UserController {
      * @return 消息体
      * @code 0#成功
      * @code 1#系统异常
-     * @code  41003#参数失败
+     * @code 41003#参数失败
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
      * @rollback cn.net.nikai.cloud.user.controller.UserController.delUser
+     * @callback cn.net.nikai.cloud.user.controller.UserController.findUser
      */
     @PostMapping(value = "/user/add")
     @ResponseBody
@@ -169,10 +170,12 @@ public class UserController {
      * @version 1.0.0
      * @author 尼凯#keni@aijiatui.com
      * @code 0#成功
+     * @code 404
      * @code 1#系统异常
-     * @code  41003#参数失败
+     * @code 41003#参数失败
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
+     * @callback cn.net.nikai.cloud.user.controller.UserController.findUser
      */
     @PostMapping("/user/update")
     @ResponseBody
@@ -200,9 +203,10 @@ public class UserController {
      * @author keni@aijiatui.com
      * @code 0#成功
      * @code 1#系统异常
-     * @code  41003#参数失败
+     * @code 41003#参数失败
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
+     * @callback cn.net.nikai.cloud.user.controller.UserController.findUser
      */
     @PostMapping("/user/delete")
     @ResponseBody
@@ -228,10 +232,12 @@ public class UserController {
      * @author keni@aijiatui.com
      * @author 尼凯
      * @code 0#成功
+     * @code -1
      * @code 1#系统异常
-     * @code  41003#参数失败
+     * @code 41003#参数失败
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
+     * @internal TRUE
      */
     @RequestMapping(value = "/api/test", method = RequestMethod.GET)
     public User testUser(List<User> users) {
@@ -246,10 +252,12 @@ public class UserController {
      * @domain BASE
      * @serviceType COMMAND
      * @code 0#成功
+     * @code -1#未知异常
      * @status DEPRECATED
      * @author keni@aijiatui.com
      * @author 尼凯#keni@aijiatui.com
      * @atom FALSE
+     * @internal
      */
     @RequestMapping(value = "/api/test2", method = {RequestMethod.GET, RequestMethod.POST}, headers = {"name=nikai",
         "sex=man"}, produces = {
