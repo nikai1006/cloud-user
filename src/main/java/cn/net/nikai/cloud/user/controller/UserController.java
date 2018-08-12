@@ -50,6 +50,7 @@ public class UserController {
      * @code 42020#无效的用户备注;
      * @author 尼凯#keni@aijiatui.com
      * @return 用户信息列表
+     * @atom false
      */
     @GetMapping(value = "/all-users/query")
     @ResponseBody
@@ -141,6 +142,7 @@ public class UserController {
      * @code  41003#参数失败
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
+     * @rollback cn.net.nikai.cloud.user.controller.UserController.delUser
      */
     @PostMapping(value = "/user/add")
     @ResponseBody
@@ -247,6 +249,7 @@ public class UserController {
      * @status DEPRECATED
      * @author keni@aijiatui.com
      * @author 尼凯#keni@aijiatui.com
+     * @atom FALSE
      */
     @RequestMapping(value = "/api/test2", method = {RequestMethod.GET, RequestMethod.POST}, headers = {"name=nikai",
         "sex=man"}, produces = {
