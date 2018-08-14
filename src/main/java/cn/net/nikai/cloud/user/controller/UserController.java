@@ -23,12 +23,13 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 服务发布器
  *
- * @author nikai#nikai@126.com
- * @version 2.0.0
+ * @author nikai
+ * @version 1.0.0
  * @domain BASE
+ * @category BASE
  */
 @RestController
-@RequestMapping(value = "/ai", method = {RequestMethod.DELETE, RequestMethod.DELETE})
+@RequestMapping("/ai")
 public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
@@ -42,7 +43,7 @@ public class UserController {
      * <pre>
      * @service 所有用户信息查询
      * @scene 新增用户;前端;商城业务
-     * @serviceType QUERY
+     * @type QUERY
      * @code 0#成功
      * @code 1#系统异常
      * @code 41003#参数失败
@@ -71,7 +72,7 @@ public class UserController {
      * @service 根据用户id查询用户信息
      * @scene 新增用户;前端;商城业务
      * @param id 用户id
-     * @serviceType QUERY
+     * @type QUERY
      * @version 1.0.0
      * @author 尼凯#keni@aijiatui.com
      * @code 0#成功
@@ -102,7 +103,7 @@ public class UserController {
      * @param userName 用户姓名
      * @scene 新增用户;前端;商城业务
      * @domain BASE
-     * @serviceType QUERY
+     * @type QUERY
      * @version 1.0.0
      * @author 尼凯#keni@aijiatui.com
      * @return 单个用户信息
@@ -133,7 +134,7 @@ public class UserController {
      * @service 新增用户
      * @scene 前端;商城业务
      * @domain BASE
-     * @serviceType COMMAND
+     * @type COMMAND
      * @version 1.0.0
      * @author nikai
      * @return 消息体
@@ -166,7 +167,7 @@ public class UserController {
      * @scene 前端;商城业务
      * @param user 用户信息
      * @domain BASE
-     * @serviceType COMMAND
+     * @type COMMAND
      * @version 1.0.0
      * @author 尼凯#keni@aijiatui.com
      * @code 0#成功
@@ -198,7 +199,7 @@ public class UserController {
      * @scene 前端;商城业务
      * @param user 用户基本信息
      * @domain BASE
-     * @serviceType COMMAND
+     * @type COMMAND
      * @version 1.0.0
      * @author keni@aijiatui.com
      * @code 0#成功
@@ -207,6 +208,7 @@ public class UserController {
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
      * @callback cn.net.nikai.cloud.user.controller.UserController.findUser
+     * @deprecated not safe
      */
     @PostMapping("/user/delete")
     @ResponseBody
@@ -227,8 +229,8 @@ public class UserController {
      * @param users 用户列表
      * @service 泛型入参测试接口
      * @domain BASE
-     * @serviceType COMMAND
-     * @status DEPRECATED
+     * @type COMMAND
+     * @deprecated DEPRECATED
      * @author keni@aijiatui.com
      * @author 尼凯
      * @code 0#成功
@@ -250,10 +252,10 @@ public class UserController {
      *
      * @service 空返回泛型入参测试接口
      * @domain BASE
-     * @serviceType COMMAND
+     * @type COMMAND
      * @code 0#成功
      * @code -1#未知异常
-     * @status DEPRECATED
+     * @deprecated DEPRECATED
      * @author keni@aijiatui.com
      * @author 尼凯#keni@aijiatui.com
      * @atom FALSE
