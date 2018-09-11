@@ -1,6 +1,6 @@
 spring:
-#  application:
-#    name: nikai-user
+  application:
+    name: nikai.user
   cloud:
     config:
       enabled: flase  #启用配置中心
