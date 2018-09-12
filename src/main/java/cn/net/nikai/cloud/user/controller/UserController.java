@@ -115,7 +115,7 @@ public class UserController {
      */
     @GetMapping("/user/find")
     @ResponseBody
-    public ServiceResponse<User> findUser(Long userId, String userName) {
+    public ServiceResponse<User> findUser(@RequestParam("id") Long userId, @RequestParam String userName) {
         log.info("input params# id={},name={}", userId, userName);
         try {
             User user = userService.queryOne(userId);
@@ -230,7 +230,6 @@ public class UserController {
      * @service 泛型入参测试接口
      * @domain BASE
      * @type COMMAND
-     * @deprecated DEPRECATED
      * @author keni@aijiatui.com
      * @author 尼凯
      * @code 0#成功
@@ -240,9 +239,10 @@ public class UserController {
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
      * @internal TRUE
+     * @deprecated DEPRECATED
      */
     @RequestMapping(value = "/api/test", method = RequestMethod.GET)
-    public User testUser(List<User> users) {
+    public User testUser(@RequestParam List<User> users) {
 
         return null;
     }
@@ -255,17 +255,17 @@ public class UserController {
      * @type COMMAND
      * @code 0#成功
      * @code -1#未知异常
-     * @deprecated DEPRECATED
      * @author keni@aijiatui.com
      * @author 尼凯#keni@aijiatui.com
      * @atom FALSE
      * @internal
+     * @deprecated DEPRECATED
      */
     @RequestMapping(value = "/api/test2", method = {RequestMethod.GET, RequestMethod.POST}, headers = {"name=nikai",
         "sex=man"}, produces = {
         MediaType.APPLICATION_JSON_UTF8_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE,
         MediaType.APPLICATION_RSS_XML_VALUE})
-    public void testVoidAPI(Map<String, User> userMap) {
+    public void testVoidAPI(@RequestBody Map<String, User> userMap) {
 
     }
 }
