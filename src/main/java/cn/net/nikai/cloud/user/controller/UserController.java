@@ -168,7 +168,6 @@ public class UserController {
      * @scene 前端;商城业务
      * @param user 用户信息
      * @domain BASE
-     * @type COMMAND
      * @version 1.0.0
      * @author 尼凯#keni@aijiatui.com
      * @code 0#成功
