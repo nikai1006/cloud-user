@@ -44,7 +44,6 @@ public class UserController {
      * <pre>
      * @service 所有用户信息查询
      * @scene 新增用户;前端;商城业务
-     * @type QUERY
      * @code 0#成功
      * @code 1#系统异常
      * @code 41003#参数失败
@@ -73,7 +72,6 @@ public class UserController {
      * @service 根据用户id查询用户信息
      * @scene 新增用户;前端;商城业务
      * @param id 用户id
-     * @type QUERY
      * @version 1.0.0
      * @author 尼凯#keni@aijiatui.com
      * @code 0#成功
