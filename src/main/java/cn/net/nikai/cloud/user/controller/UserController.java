@@ -266,7 +266,7 @@ public class UserController {
         "sex=man"}, produces = {
         MediaType.APPLICATION_JSON_UTF8_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE,
         MediaType.APPLICATION_RSS_XML_VALUE})
-    public void testVoidAPI(@PathVariable(value = "age",required = true) String age,@RequestBody Map<String, User> userMap) {
+    public void testVoidAPI(@PathVariable(value = "myAge",required = false) String age,@RequestBody Map<String, User> userMap) {
 
     }
 }
