@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -83,7 +84,7 @@ public class UserController {
      */
     @GetMapping("/user/query")
     @ResponseBody
-    public ServiceResponse<User> queryUserById(@RequestParam Long id) {
+    public ServiceResponse<User> queryUserById(@RequestParam(required = true) Long id) {
         log.info("input params# id={}", id);
         try {
             User user = userService.queryOne(id);
@@ -261,11 +262,11 @@ public class UserController {
      * @internal
      * @deprecated DEPRECATED
      */
-    @RequestMapping(value = "/api/test2", method = {RequestMethod.GET, RequestMethod.POST}, headers = {"name=nikai",
+    @RequestMapping(value = "/api/test2/{age}", method = {RequestMethod.GET, RequestMethod.POST}, headers = {"name=nikai",
         "sex=man"}, produces = {
         MediaType.APPLICATION_JSON_UTF8_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE,
         MediaType.APPLICATION_RSS_XML_VALUE})
-    public void testVoidAPI(@RequestBody Map<String, User> userMap) {
+    public void testVoidAPI(@PathVariable(value = "age",required = true) String age,@RequestBody Map<String, User> userMap) {
 
     }
 }
