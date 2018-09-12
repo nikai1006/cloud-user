@@ -262,11 +262,11 @@ public class UserController {
      * @internal
      * @deprecated DEPRECATED
      */
-    @RequestMapping(value = "/api/test2/{age}", method = {RequestMethod.GET, RequestMethod.POST}, headers = {"name=nikai",
+    @RequestMapping(value = "/api/test2/{myAge}", method = {RequestMethod.GET, RequestMethod.POST}, headers = {"name=nikai",
         "sex=man"}, produces = {
         MediaType.APPLICATION_JSON_UTF8_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE,
         MediaType.APPLICATION_RSS_XML_VALUE})
     public void testVoidAPI(@PathVariable(value = "myAge",required = false) String age,@RequestBody Map<String, User> userMap) {
-
+        System.out.println(age);
     }
 }
