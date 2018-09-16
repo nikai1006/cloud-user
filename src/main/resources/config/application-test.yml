@@ -15,7 +15,7 @@ spring:
 #----下面配置已经放到了配置中心，取消注释会使用本地配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.131:3306/test?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.1.107:3306/test?useUnicode=true&characterEncoding=utf-8
     username: test
     password: 123456
 ######################################################################################
