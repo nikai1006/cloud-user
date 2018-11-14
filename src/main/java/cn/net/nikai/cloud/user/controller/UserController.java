@@ -1,15 +1,11 @@
 package cn.net.nikai.cloud.user.controller;
 
 import cn.net.nikai.cloud.user.dto.User;
-import cn.net.nikai.cloud.user.service.UserService;
 import com.jiatui.spi.ServiceResponse;
-import com.jiatui.spi.enums.ResponseErrorCodeEnum;
-import com.jiatui.spi.util.JsonFactory;
 import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,8 +31,6 @@ public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
-    @Autowired
-    private UserService userService;
 
     /**
      * <pre>
@@ -56,13 +50,7 @@ public class UserController {
     @GetMapping(value = "/all-users/query")
     @ResponseBody
     public ServiceResponse<List<User>> queryUsers() {
-        try {
-            List<User> users = userService.queryAll();
-            return new ServiceResponse<List<User>>(users);
-        } catch (Exception e) {
-            log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(), e);
-            return new ServiceResponse<>(ResponseErrorCodeEnum.SYSTEM_ERR);
-        }
+        return null;
     }
 
     /**
@@ -83,14 +71,7 @@ public class UserController {
     @GetMapping("/user/query")
     @ResponseBody
     public ServiceResponse<User> queryUserById(@RequestParam(required = true) Long id) {
-        log.info("input params# id={}", id);
-        try {
-            User user = userService.queryOne(id);
-            return new ServiceResponse<User>(user);
-        } catch (Exception e) {
-            log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(), e);
-            return new ServiceResponse<User>(ResponseErrorCodeEnum.SYSTEM_ERR);
-        }
+        return null;
     }
 
     /**
@@ -115,14 +96,7 @@ public class UserController {
     @GetMapping("/user/find")
     @ResponseBody
     public ServiceResponse<User> findUser(@RequestParam("id") Long userId, @RequestParam String userName) {
-        log.info("input params# id={},name={}", userId, userName);
-        try {
-            User user = userService.queryOne(userId);
-            return new ServiceResponse<User>(user);
-        } catch (Exception e) {
-            log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(), e);
-            return new ServiceResponse<User>(ResponseErrorCodeEnum.SYSTEM_ERR);
-        }
+        return null;
     }
 
 
@@ -148,14 +122,7 @@ public class UserController {
     @PostMapping(value = "/user/add")
     @ResponseBody
     public ServiceResponse<String> saveUser(@RequestBody User user) {
-        try {
-            log.info("input params#{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
-            userService.addOne(user);
-            return new ServiceResponse<>("success");
-        } catch (Exception e) {
-            log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(), e);
-            return new ServiceResponse<>(ResponseErrorCodeEnum.SYSTEM_ERR);
-        }
+        return null;
     }
 
     /**
@@ -179,14 +146,7 @@ public class UserController {
     @PostMapping("/user/update")
     @ResponseBody
     public ServiceResponse updateUser(@RequestBody User user) {
-        try {
-            log.info("input params#{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
-            userService.update(user);
-            return new ServiceResponse();
-        } catch (Exception e) {
-            log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(), e);
-            return new ServiceResponse(ResponseErrorCodeEnum.SYSTEM_ERR);
-        }
+        return null;
     }
 
     /**
@@ -211,14 +171,7 @@ public class UserController {
     @PostMapping("/user/delete")
     @ResponseBody
     public ServiceResponse delUser(@RequestBody User user) {
-        try {
-            log.info("input params#{}", JsonFactory.getDateFormatGsonInstance().toJson(user));
-            userService.delete(user);
-            return new ServiceResponse();
-        } catch (Exception e) {
-            log.error(ResponseErrorCodeEnum.SYSTEM_ERR.getMessage(), e);
-            return new ServiceResponse<>(ResponseErrorCodeEnum.SYSTEM_ERR);
-        }
+        return null;
     }
 
     /**
@@ -259,11 +212,13 @@ public class UserController {
      * @internal
      * @deprecated DEPRECATED
      */
-    @RequestMapping(value = "/api/test2/{myAge}", method = {RequestMethod.GET, RequestMethod.POST}, headers = {"name=nikai",
+    @RequestMapping(value = "/api/test2/{myAge}", method = {RequestMethod.GET, RequestMethod.POST}, headers = {
+        "name=nikai",
         "sex=man"}, produces = {
         MediaType.APPLICATION_JSON_UTF8_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE,
         MediaType.APPLICATION_RSS_XML_VALUE})
-    public void testVoidAPI(@PathVariable(value = "myAge",required = false) String age,@RequestBody Map<String, User> userMap) {
+    public void testVoidAPI(@PathVariable(value = "myAge", required = false) String age,
+        @RequestBody Map<String, User> userMap) {
         System.out.println(age);
     }
 }
