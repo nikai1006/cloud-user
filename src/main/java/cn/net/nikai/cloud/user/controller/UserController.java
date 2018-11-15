@@ -2,6 +2,7 @@ package cn.net.nikai.cloud.user.controller;
 
 import cn.net.nikai.cloud.user.dto.User;
 import com.jiatui.spi.ServiceResponse;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -220,5 +221,36 @@ public class UserController {
     public void testVoidAPI(@PathVariable(value = "myAge", required = false) String age,
         @RequestBody Map<String, User> userMap) {
         System.out.println(age);
+    }
+
+    /**
+     * get user map
+     * @service get user map
+     * @return
+     */
+    @PostMapping("/user-map/get")
+    public Map<String, User> getUserMap(){
+        return null;
+    }
+
+    /**
+     * 列出用户
+     * @service 列出用户
+     * @return
+     */
+    @GetMapping("/all-users/list")
+    public List<User> queryAllUsers()
+    {
+        return null;
+    }
+
+    /**
+     * get user map
+     * @service get user map
+     * @return
+     */
+    @PostMapping("/user-map/map")
+    public HashMap<String, User> mapUsers(){
+        return null;
     }
 }
