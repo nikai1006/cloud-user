@@ -2,6 +2,7 @@ package cn.net.nikai.cloud.user.controller;
 
 import cn.net.nikai.cloud.user.dto.User;
 import com.jiatui.spi.ServiceResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -225,32 +226,41 @@ public class UserController {
 
     /**
      * get user map
+     *
      * @service get user map
-     * @return
      */
     @PostMapping("/user-map/get")
-    public Map<String, User> getUserMap(){
+    public Map<String, User> getUserMap() {
         return null;
     }
 
     /**
      * 列出用户
+     *
      * @service 列出用户
-     * @return
      */
     @GetMapping("/all-users/list")
-    public List<User> queryAllUsers()
-    {
+    public List<User> queryAllUsers() {
         return null;
     }
 
     /**
      * get user map
+     *
      * @service get user map
-     * @return
      */
     @PostMapping("/user-map/map")
-    public HashMap<String, User> mapUsers(){
+    public HashMap<String, User> mapUsers() {
+        return null;
+    }
+
+    /**
+     * array all users
+     * @service array all users
+     * @return
+     */
+    @GetMapping("/users-all/array")
+    public ArrayList<User> listAllUsers() {
         return null;
     }
 }
