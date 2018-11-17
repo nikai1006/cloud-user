@@ -257,7 +257,7 @@ public class UserController {
     /**
      * array all users
      * @service array all users
-     * @return
+     * @return  all users
      */
     @GetMapping("/users-all/array")
     public ArrayList<User> listAllUsers() {
