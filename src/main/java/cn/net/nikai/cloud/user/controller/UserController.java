@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -261,6 +263,17 @@ public class UserController {
      */
     @GetMapping("/users-all/array")
     public ArrayList<User> listAllUsers() {
+        return null;
+    }
+
+    /**
+     * servlet测试
+     * @since servlet测试
+     * @return 用户信息
+     */
+    @GetMapping("/servlet/test")
+    public User createUser(HttpServletRequest request,HttpServletResponse response)
+    {
         return null;
     }
 }
