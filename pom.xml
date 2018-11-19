@@ -119,7 +119,7 @@
                             <subpackages>${api.scan.base.packages}:;${javadoc.option.params}</subpackages>
                             <show>private</show>
                             <nohelp>true</nohelp>
-                            <doclet>org.and.api.doclet.ControllerDocProcessor</doclet>
+                            <doclet>org.and.api.doclet.OpenApiProcessor</doclet>
                             <docletArtifact>
                                 <groupId>org.and.api</groupId>
                                 <artifactId>api-doc-plugin</artifactId>
