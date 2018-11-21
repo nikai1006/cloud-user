@@ -1,5 +1,7 @@
 package cn.net.nikai.cloud.user.controller;
 
+import cn.net.nikai.cloud.user.dto.Card;
+import cn.net.nikai.cloud.user.dto.Friend;
 import cn.net.nikai.cloud.user.dto.User;
 import com.jiatui.spi.ServiceResponse;
 import java.util.ArrayList;
@@ -252,28 +254,30 @@ public class UserController {
      * @service get user map
      */
     @PostMapping("/user-map/map")
-    public HashMap<String, User> mapUsers() {
+    public HashMap<String, User> mapUsers(User user, Card card) {
         return null;
     }
 
     /**
      * array all users
+     *
+     * @return all users
      * @service array all users
-     * @return  all users
      */
     @GetMapping("/users-all/array")
-    public ArrayList<User> listAllUsers() {
+    public ArrayList<User> listAllUsers(@RequestBody User user, @RequestParam Friend friend) {
         return null;
     }
 
     /**
      * servlet测试
-     * @since servlet测试
+     *
      * @return 用户信息
+     * @since servlet测试
      */
     @GetMapping("/servlet/test")
-    public User createUser(HttpServletRequest request,HttpServletResponse response)
-    {
+    public User createUser(HttpServletRequest request, HttpServletResponse response) {
         return null;
     }
+
 }
