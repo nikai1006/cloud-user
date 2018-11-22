@@ -280,4 +280,17 @@ public class UserController {
         return null;
     }
 
+    /**
+     * 获取用户数组
+     * @service 获取用户数组
+     * @param ids 用户id集合
+     * @return 获取用户数组
+     */
+    @GetMapping("/user-array/get")
+    @ResponseBody
+    public User[] getUserArray(Integer[] ids)
+    {
+        return null;
+    }
+
 }
