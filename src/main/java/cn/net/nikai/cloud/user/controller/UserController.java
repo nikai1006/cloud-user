@@ -4,6 +4,7 @@ import cn.net.nikai.cloud.user.dto.Card;
 import cn.net.nikai.cloud.user.dto.Friend;
 import cn.net.nikai.cloud.user.dto.User;
 import com.jiatui.spi.ServiceResponse;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -293,4 +294,9 @@ public class UserController {
         return null;
     }
 
+    @PostMapping("/complex-type/got")
+    public ServiceResponse<User>[] getComplexType(@RequestParam BigInteger id)
+    {
+        return null;
+    }
 }
