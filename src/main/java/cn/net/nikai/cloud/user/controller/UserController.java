@@ -294,6 +294,11 @@ public class UserController {
         return null;
     }
 
+    /**
+     * 这是Release分支
+     * @param id 编号
+     * @return
+     */
     @PostMapping("/complex-type/got")
     public ServiceResponse<User>[] getComplexType(@RequestParam BigInteger id)
     {
