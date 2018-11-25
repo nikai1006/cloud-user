@@ -299,9 +299,9 @@ public class UserController {
      * @param id 编号
      * @return
      */
-    @PostMapping("/complex-type/got")
+    /*@PostMapping("/complex-type/got")
     public ServiceResponse<User>[] getComplexType(@RequestParam BigInteger id)
     {
         return null;
-    }
+    }*/
 }
