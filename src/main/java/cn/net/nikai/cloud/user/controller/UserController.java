@@ -253,6 +253,9 @@ public class UserController {
      * get user map
      *
      * @service get user map
+     * @param card 入参卡片信息
+     * @param user 入参用户信息
+     * @return 用户名和信息映射表
      */
     @PostMapping("/user-map/map")
     public HashMap<String, User> mapUsers(User user, Card card) {
@@ -262,6 +265,8 @@ public class UserController {
     /**
      * array all users
      *
+     * @param user 入参用户信息
+     * @param friend 入参朋友信息
      * @return all users
      * @service array all users
      */
