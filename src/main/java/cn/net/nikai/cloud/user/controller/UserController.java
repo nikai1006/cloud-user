@@ -302,11 +302,11 @@ public class UserController {
     /**
      * 这是Release分支
      * @param id 编号
-     * @return
+     * @return 用户数组
      */
-    /*@PostMapping("/complex-type/got")
+    @PostMapping("/complex-type/got")
     public ServiceResponse<User>[] getComplexType(@RequestParam BigInteger id)
     {
         return null;
-    }*/
+    }
 }
