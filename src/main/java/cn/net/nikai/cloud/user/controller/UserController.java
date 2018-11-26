@@ -301,6 +301,7 @@ public class UserController {
 
     /**
      * 这是Release分支
+     * @service 泛型数组测试
      * @param id 编号
      * @return 用户数组
      */
