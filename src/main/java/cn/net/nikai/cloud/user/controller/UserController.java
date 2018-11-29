@@ -102,7 +102,7 @@ public class UserController {
      */
     @GetMapping("/user/find")
     @ResponseBody
-    public ServiceResponse<User> findUser(@RequestParam("id") Long userId, @RequestParam String userName) {
+    public ServiceResponse<User> findUser(@RequestParam("id") Long userId, @RequestBody String userName) {
         return null;
     }
 
@@ -308,6 +308,27 @@ public class UserController {
     @PostMapping("/complex-type/got")
     public ServiceResponse<User>[] getComplexType(@RequestParam BigInteger id)
     {
+        return null;
+    }
+
+    /**
+     * 相同方法名测试接口1
+     * @service 相同方法名测试接口1
+     * @param user 入参用户信息
+     * @return 包装卡片信息
+     */
+    @PostMapping("/same-method/post")
+    public ServiceResponse<Card> getUserCard(@RequestBody User user){
+        return null;
+    }
+
+    /**
+     * 相同方法名测试接口2
+     * @service 相同方法名测试接口2
+     * @return 简单卡片信息
+     */
+    @GetMapping("/same-method/get")
+    public Card getUserCard(){
         return null;
     }
 }
