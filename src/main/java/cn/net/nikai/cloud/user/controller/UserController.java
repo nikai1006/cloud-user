@@ -4,8 +4,10 @@ import cn.net.nikai.cloud.user.dto.Card;
 import cn.net.nikai.cloud.user.dto.Friend;
 import cn.net.nikai.cloud.user.dto.User;
 import com.jiatui.spi.ServiceResponse;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +40,10 @@ public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
+    private static final String testid = "nikai";
+    private static String testname = "nikai";
 
+    public static String testage = "23";
     /**
      * <pre>
      *     查询所有的用户信息
@@ -235,7 +240,7 @@ public class UserController {
      * @service get user map
      */
     @PostMapping("/user-map/get")
-    public Map<String, User> getUserMap() {
+    public Map<String, User> getUserMap(BigInteger id) {
         return null;
     }
 
@@ -245,17 +250,17 @@ public class UserController {
      * @service 列出用户
      */
     @GetMapping("/all-users/list")
-    public List<User> queryAllUsers() {
+    public <T> List<User> queryAllUsers(T input) {
         return null;
     }
 
     /**
      * get user map
      *
-     * @service get user map
      * @param card 入参卡片信息
      * @param user 入参用户信息
      * @return 用户名和信息映射表
+     * @service get user map
      */
     @PostMapping("/user-map/map")
     public HashMap<String, User> mapUsers(User user, Card card) {
@@ -288,47 +293,85 @@ public class UserController {
 
     /**
      * 获取用户数组
-     * @service 获取用户数组
+     *
      * @param ids 用户id集合
      * @return 获取用户数组
+     * @service 获取用户数组
      */
     @GetMapping("/user-array/get")
     @ResponseBody
-    public User[] getUserArray(Integer[] ids)
-    {
+    public User[] getUserArray(Integer[] ids) {
         return null;
     }
 
     /**
      * 这是Release分支
-     * @service 泛型数组测试
+     *
      * @param id 编号
      * @return 用户数组
+     * @service 泛型数组测试
      */
     @PostMapping("/complex-type/got")
-    public ServiceResponse<User>[] getComplexType(@RequestParam BigInteger id)
-    {
+    public ServiceResponse<User>[] getComplexType(@RequestParam BigInteger id) {
         return null;
     }
 
     /**
      * 相同方法名测试接口1
-     * @service 相同方法名测试接口1
+     *
      * @param user 入参用户信息
      * @return 包装卡片信息
+     * @service 相同方法名测试接口1
      */
     @PostMapping("/same-method/post")
-    public ServiceResponse<Card> getUserCard(@RequestBody User user){
+    public ServiceResponse<Card> getUserCard(@RequestBody User user) {
         return null;
     }
 
     /**
      * 相同方法名测试接口2
-     * @service 相同方法名测试接口2
+     *
      * @return 简单卡片信息
+     * @service 相同方法名测试接口2
      */
     @GetMapping("/same-method/get")
-    public Card getUserCard(){
+    public Card getUserCard(Date date) {
+        return null;
+    }
+
+    /**
+     * 泛型测试
+     * @service 泛型测试
+     * @param input 输入
+     * @param <T> 入参
+     * @return 泛型
+     */
+    @PostMapping("/generic/test1")
+    public <T> T testGeneric(T input){
+        return null;
+    }
+
+    /**
+     * 字节测试
+     * @service 字节测试
+     * @param price 价格
+     * @return 字节数组
+     */
+    @GetMapping("/user-bytes/get")
+    public Byte[] getBytes(BigDecimal price){
+        return null;
+    }
+
+
+    /**
+     * 字节列表
+     * @service 字节列表
+     * @param num 个数
+     * @return 字节列表
+     */
+    @PostMapping("/user-bytes/post")
+    public List<Byte> gotBytes(BigInteger num)
+    {
         return null;
     }
 }
