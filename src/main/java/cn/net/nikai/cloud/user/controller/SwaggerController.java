@@ -2,6 +2,7 @@ package cn.net.nikai.cloud.user.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author nikai
  * @Description:
- * @Date  Create in 0:04 2018/12/20
+ * @Date Create in 0:04 2018/12/20
  * @Modified By:
  */
 @RestController
@@ -20,7 +21,8 @@ public class SwaggerController {
 
     @GetMapping("/swagger/test1")
     @ApiOperation(value = "查询全部信息", notes = "这是查询全部信息的详细描述，测试专用，请勿调用该接口")
-    public void queryAllInfo() {
+    public void queryAllInfo(@ApiParam(value = "姓名", required = true) String name,
+        @ApiParam(value = "密码", required = true) String password) {
 
     }
 
