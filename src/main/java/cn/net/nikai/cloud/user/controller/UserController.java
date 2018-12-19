@@ -44,6 +44,7 @@ public class UserController {
     private static String testname = "nikai";
 
     public static String testage = "23";
+
     /**
      * <pre>
      *     查询所有的用户信息
@@ -341,37 +342,39 @@ public class UserController {
 
     /**
      * 泛型测试
-     * @service 泛型测试
+     *
      * @param input 输入
      * @param <T> 入参
      * @return 泛型
+     * @service 泛型测试
      */
     @PostMapping("/generic/test1")
-    public <T> T testGeneric(T input){
+    public <T> T testGeneric(T input) {
         return null;
     }
 
     /**
      * 字节测试
-     * @service 字节测试
+     *
      * @param price 价格
      * @return 字节数组
+     * @service 字节测试
      */
     @GetMapping("/user-bytes/get")
-    public Byte[] getBytes(BigDecimal price){
+    public Byte[] getBytes(BigDecimal price) {
         return null;
     }
 
 
     /**
      * 字节列表
-     * @service 字节列表
+     *
      * @param num 个数
      * @return 字节列表
+     * @service 字节列表
      */
     @PostMapping("/user-bytes/post")
-    public List<Byte> gotBytes(BigInteger num)
-    {
+    public List<Byte> gotBytes(BigInteger num) {
         return null;
     }
 }
