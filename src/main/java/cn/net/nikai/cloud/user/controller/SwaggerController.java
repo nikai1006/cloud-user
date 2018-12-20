@@ -33,7 +33,7 @@ public class SwaggerController {
 
 
     @PostMapping("/swagger/nothing")
-    @ApiImplicitParam(value = "body类型入参")
+//    @ApiImplicitParam(value = "body类型入参")
     @ApiOperation(value = "post测试用", notes = "post测试详细说明")
     public ServiceResponse nothing(@RequestBody Order order) {
         return null;
