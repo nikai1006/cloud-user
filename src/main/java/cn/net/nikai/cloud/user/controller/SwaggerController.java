@@ -1,9 +1,14 @@
 package cn.net.nikai.cloud.user.controller;
 
+import cn.net.nikai.cloud.user.dto.Order;
+import com.jiatui.spi.ServiceResponse;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -24,6 +29,14 @@ public class SwaggerController {
     public void queryAllInfo(@ApiParam(value = "姓名", required = true) String name,
         @ApiParam(value = "密码", required = true) String password) {
 
+    }
+
+
+    @PostMapping("/swagger/nothing")
+    @ApiImplicitParam(value = "body类型入参")
+    @ApiOperation(value = "post测试用", notes = "post测试详细说明")
+    public ServiceResponse nothing(@RequestBody Order order) {
+        return null;
     }
 
 }
