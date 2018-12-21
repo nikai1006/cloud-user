@@ -1,9 +1,9 @@
 package cn.net.nikai.cloud.user.controller;
 
+import cn.net.nikai.cloud.user.dto.CompanyBase;
 import cn.net.nikai.cloud.user.dto.Order;
 import com.jiatui.spi.ServiceResponse;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,4 +39,10 @@ public class SwaggerController {
         return null;
     }
 
+
+    @ApiOperation(value = "根据登录帐号获取公司的信息", notes = "联系人：肖振华")
+    @PostMapping(value = {"/company/info/byloginname"})
+    public CompanyBase tojson() {
+        return null;
+    }
 }
