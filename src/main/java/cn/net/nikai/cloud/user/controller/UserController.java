@@ -48,7 +48,9 @@ public class UserController {
     /**
      * <pre>
      *     查询所有的用户信息
-     * <pre>
+     * </pre>
+     *
+     * @return 用户信息列表
      * @service 所有用户信息查询
      * @scene 新增用户;前端;商城业务
      * @code 0#成功
@@ -57,7 +59,6 @@ public class UserController {
      * @code 2#操作繁忙
      * @code 42020#无效的用户备注;
      * @author 尼凯#keni@aijiatui.com
-     * @return 用户信息列表
      * @atom false
      */
     @GetMapping(value = "/all-users/query")
@@ -69,10 +70,11 @@ public class UserController {
     /**
      * <pre>
      *     根据用户id查询用户信息
-     * <pre>
+     * </pre>
+     *
+     * @param id 用户id
      * @service 根据用户id查询用户信息
      * @scene 新增用户;前端;商城业务
-     * @param id 用户id
      * @version 1.0.0
      * @author 尼凯#keni@aijiatui.com
      * @code 0#成功
@@ -90,16 +92,17 @@ public class UserController {
     /**
      * <pre>
      *     根据用户id和用户名查询用户信息
-     * <pre>
-     * @service 根据用户id和用户名查询用户信息
+     * </pre>
+     *
      * @param userId 用户id
      * @param userName 用户姓名
+     * @return 单个用户信息
+     * @service 根据用户id和用户名查询用户信息
      * @scene 新增用户;前端;商城业务
      * @domain BASE
      * @type QUERY
      * @version 1.0.0
      * @author 尼凯#keni@aijiatui.com
-     * @return 单个用户信息
      * @code 0#成功
      * @code 1#系统异常
      * @code 41003#参数失败
@@ -116,14 +119,15 @@ public class UserController {
     /**
      * <pre>
      *     新增一个用户
-     * <pre>
+     * </pre>
+     *
+     * @return 消息体
      * @service 新增用户
      * @scene 前端;商城业务
      * @domain BASE
      * @type COMMAND
      * @version 1.0.0
      * @author nikai
-     * @return 消息体
      * @code 0#成功
      * @code 1#系统异常
      * @code 41003#参数失败
@@ -141,10 +145,11 @@ public class UserController {
     /**
      * <pre>
      *     修改用户信息
-     * <pre>
+     * </pre>
+     *
+     * @param user 用户信息
      * @service 修改用户信息
      * @scene 前端;商城业务
-     * @param user 用户信息
      * @domain BASE
      * @version 1.0.0
      * @author 尼凯#keni@aijiatui.com
@@ -165,10 +170,11 @@ public class UserController {
     /**
      * <pre>
      *     删除用户
-     * <pre>
+     * </pre>
+     *
+     * @param user 用户基本信息
      * @service 删除用户
      * @scene 前端;商城业务
-     * @param user 用户基本信息
      * @domain BASE
      * @type COMMAND
      * @version 1.0.0
@@ -212,7 +218,9 @@ public class UserController {
     }
 
     /**
+     * <pre>
      * 空返回泛型入参测试接口
+     * </pre>
      *
      * @service 空返回泛型入参测试接口
      * @domain BASE
