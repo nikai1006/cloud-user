@@ -3,7 +3,7 @@ package cn.net.nikai.cloud.user.controller;
 import cn.net.nikai.cloud.user.dto.Card;
 import cn.net.nikai.cloud.user.dto.Friend;
 import cn.net.nikai.cloud.user.dto.User;
-import com.jiatui.spi.ServiceResponse;
+import com.oeasy.base.spi.ServiceResponse;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -266,7 +267,7 @@ public class UserController {
      * @service array all users
      */
     @GetMapping("/users-all/array")
-    public ArrayList<User> listAllUsers(@RequestBody User user, @RequestParam Friend friend) {
+    public ArrayList<User> listAllUsers(@RequestBody User user, @RequestPart Friend friend) {
         return null;
     }
 

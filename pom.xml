@@ -23,9 +23,9 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.jiatui.spi</groupId>
+            <groupId>com.oeasy.base</groupId>
             <artifactId>spi</artifactId>
-            <version>1.2.19-SNAPSHOT</version>
+            <version>1.2.18-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>cn.net.nikai.cloud</groupId>
@@ -33,26 +33,8 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -123,7 +105,7 @@
                             <docletArtifact>
                                 <groupId>org.and.api</groupId>
                                 <artifactId>api-doc-plugin</artifactId>
-                                <version>1.1.0-SNAPSHOT</version>
+                                <version>1.4.0-SNAPSHOT</version>
                             </docletArtifact>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
                             <encoding>UTF-8</encoding>
