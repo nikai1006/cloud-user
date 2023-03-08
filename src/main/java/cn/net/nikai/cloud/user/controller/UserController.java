@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0.0
  * @domain BASE
  * @category BASE
+ * @ignore
  */
 @RestController
 @RequestMapping("/ai")
@@ -46,12 +47,12 @@ public class UserController {
      * <pre>
      * @service 所有用户信息查询
      * @scene 新增用户;前端;商城业务
-     * @code 0#成功
-     * @code 1#系统异常
-     * @code 41003#参数失败
-     * @code 2#操作繁忙
-     * @code 42020#无效的用户备注;
-     * @author 尼凯#keni@aijiatui.com
+     * @code 0 成功
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
+     * @author 尼凯 keni@aijiatui.com
      * @return 用户信息列表
      * @atom false
      */
@@ -69,16 +70,20 @@ public class UserController {
      * @scene 新增用户;前端;商城业务
      * @param id 用户id
      * @version 1.0.0
-     * @author 尼凯#keni@aijiatui.com
-     * @code 0#成功
-     * @code 1#系统异常
-     * @code 41003#参数失败
-     * @code 2#操作繁忙
-     * @code 42020#无效的用户备注;
+     * @author 尼凯 keni@aijiatui.com
+     * @code 0 成功
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
+     * @example id 99
+     * @default id 77
      */
-    @GetMapping("/user/query")
+    @GetMapping(value = "/user/query", params = {"id=1", "id"}, headers = {"Origin"}, consumes = {
+        MediaType.TEXT_HTML_VALUE, MediaType.TEXT_PLAIN_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE,
+        MediaType.APPLICATION_FORM_URLENCODED_VALUE})
     @ResponseBody
-    public ServiceResponse<User> queryUserById(@RequestParam(required = true) Long id) {
+    public User queryUserById(@RequestParam(required = true, defaultValue = "88") Long id) {
         return null;
     }
 
@@ -93,13 +98,13 @@ public class UserController {
      * @domain BASE
      * @type QUERY
      * @version 1.0.0
-     * @author 尼凯#keni@aijiatui.com
+     * @author 尼凯 keni@aijiatui.com
      * @return 单个用户信息
-     * @code 0#成功
-     * @code 1#系统异常
-     * @code 41003#参数失败
-     * @code 2#操作繁忙
-     * @code 42020#无效的用户备注;
+     * @code 0 成功
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
      */
     @GetMapping("/user/find")
     @ResponseBody
@@ -119,11 +124,11 @@ public class UserController {
      * @version 1.0.0
      * @author nikai
      * @return 消息体
-     * @code 0#成功
-     * @code 1#系统异常
-     * @code 41003#参数失败
-     * @code 2#操作繁忙
-     * @code 42020#无效的用户备注;
+     * @code 0 成功
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
      * @rollback cn.net.nikai.cloud.user.controller.UserController.delUser
      * @callback cn.net.nikai.cloud.user.controller.UserController.findUser
      */
@@ -142,13 +147,13 @@ public class UserController {
      * @param user 用户信息
      * @domain BASE
      * @version 1.0.0
-     * @author 尼凯#keni@aijiatui.com
-     * @code 0#成功
+     * @author 尼凯 keni@aijiatui.com
+     * @code 0 成功
      * @code 404
-     * @code 1#系统异常
-     * @code 41003#参数失败
-     * @code 2#操作繁忙
-     * @code 42020#无效的用户备注;
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
      * @callback cn.net.nikai.cloud.user.controller.UserController.findUser
      */
     @PostMapping("/user/update")
@@ -168,11 +173,11 @@ public class UserController {
      * @type COMMAND
      * @version 1.0.0
      * @author keni@aijiatui.com
-     * @code 0#成功
-     * @code 1#系统异常
-     * @code 41003#参数失败
-     * @code 2#操作繁忙
-     * @code 42020#无效的用户备注;
+     * @code 0 成功
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
      * @callback cn.net.nikai.cloud.user.controller.UserController.findUser
      * @deprecated not safe
      */
@@ -191,16 +196,16 @@ public class UserController {
      * @type COMMAND
      * @author keni@aijiatui.com
      * @author 尼凯
-     * @code 0#成功
+     * @code 0 成功
      * @code -1
-     * @code 1#系统异常
-     * @code 41003#参数失败
-     * @code 2#操作繁忙
-     * @code 42020#无效的用户备注;
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
      * @internal TRUE
      * @deprecated DEPRECATED
      */
-    @RequestMapping(value = "/api/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/test", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
     public User testUser(@RequestParam List<User> users) {
 
         return null;
@@ -212,10 +217,10 @@ public class UserController {
      * @service 空返回泛型入参测试接口
      * @domain BASE
      * @type COMMAND
-     * @code 0#成功
-     * @code -1#未知异常
+     * @code 0 成功
+     * @code -1 未知异常
      * @author keni@aijiatui.com
-     * @author 尼凯#keni@aijiatui.com
+     * @author 尼凯 keni@aijiatui.com
      * @atom FALSE
      * @internal
      * @deprecated DEPRECATED
@@ -246,7 +251,8 @@ public class UserController {
      * @service 列出用户
      */
     @GetMapping("/all-users/list")
-    public List<User> queryAllUsers() {
+    public List<User> queryAllUsers(@RequestParam(defaultValue = "nikai") String filter) {
+        log.info(filter);
         return null;
     }
 
@@ -284,20 +290,84 @@ public class UserController {
 
     /**
      * 获取用户数组
-     * @service 获取用户数组
+     *
      * @param ids 用户id集合
      * @return 获取用户数组
+     * @service 获取用户数组
      */
     @GetMapping("/user-array/get")
     @ResponseBody
-    public User[] getUserArray(Integer[] ids)
-    {
+    public User[] getUserArray(Integer[] ids) {
         return null;
     }
 
+    /**
+     * @param id
+     * @return 结果
+     */
     @PostMapping("/complex-type/got")
-    public ServiceResponse<User>[] getComplexType(@RequestParam BigInteger id)
-    {
+    public ServiceResponse<User>[] getComplexType(@RequestParam(required = false) BigInteger id) {
         return null;
+    }
+
+    /**
+     * <pre>
+     *   根据姓名和编号获取人员信息
+     *  </pre>
+     *
+     * @param name 姓名
+     * @param id   编号
+     * @return 人员信息
+     * @service 根据姓名和编号获取人员信息
+     * @domain BASE
+     * @author nikai
+     * @version 1.0.0
+     * @date 2022/11/18
+     * @code 0 成功
+     * @code -1
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @since 1.0.0
+     */
+    @GetMapping("/user/{name}/{id}")
+    public ServiceResponse getUserByNameAndId(@PathVariable("name") String name, @PathVariable("id") String id) {
+        return null;
+    }
+
+    /**
+     * 获取名字
+     * @return 名字
+     */
+    @GetMapping("/name/get")
+    public String getName() {
+        return "hello";
+    }
+
+    /**
+     * 获取年龄
+     * @return 年龄
+     */
+    @GetMapping("/age/get")
+    public Integer getAge() {
+        return 18;
+    }
+
+    /**
+     * 获取性别
+     * @return 性别
+     */
+    @GetMapping("/sex/get")
+    public Boolean getSex() {
+        return true;
+    }
+
+    /**
+     * 获取身高
+     * @return 身高
+     */
+    @GetMapping("/height/get")
+    public Double getHeight() {
+        return 18.35;
     }
 }

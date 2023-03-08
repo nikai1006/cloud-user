@@ -19,13 +19,13 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-        <api.scan.base.packages>cn.net.nikai.cloud.user.controller2</api.scan.base.packages>
+        <api.scan.base.packages>cn.net.nikai.cloud.user.controller</api.scan.base.packages>
     </properties>
     <dependencies>
         <dependency>
             <groupId>com.oeasy.base</groupId>
             <artifactId>spi</artifactId>
-            <version>1.2.18-SNAPSHOT</version>
+            <version>1.4.0</version>
         </dependency>
         <dependency>
             <groupId>cn.net.nikai.cloud</groupId>
@@ -81,7 +81,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <javadoc.option.params>url=http://localhost:18000/api-data/collect/;spring.application.name=${artifactId}</javadoc.option.params>
+                <javadoc.option.params>url=http://localhost:18000/api-data/collect/;spring.application.name=${project.artifactId}</javadoc.option.params>
             </properties>
             <build>
                 <plugins>
@@ -105,7 +105,7 @@
                             <docletArtifact>
                                 <groupId>org.and.api</groupId>
                                 <artifactId>api-doc-plugin</artifactId>
-                                <version>1.4.0-SNAPSHOT</version>
+                                <version>1.7.8</version>
                             </docletArtifact>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
                             <encoding>UTF-8</encoding>

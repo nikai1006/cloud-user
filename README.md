@@ -32,7 +32,10 @@ cloud-user
 
 -  安装教程
 
-1. xxxx
+1. 构建命令 
+```shell script
+mvn clean javadoc:javadoc -Papi-doc -Ddoclint=none
+```
 2. xxxx
 3. xxxx
 
