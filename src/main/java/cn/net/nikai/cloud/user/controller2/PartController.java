@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @ignore
+ *
  */
 @RestController
 @RequestMapping("/part")
@@ -45,7 +45,7 @@ public class PartController {
      *
      * @return all users
      * @service array all users
-     * @ignore
+     *
      */
     @GetMapping("/users-all/array")
     @ApiOperation(value = "查询所有用户", notes = "查询全部用户(测试专用)")
@@ -86,7 +86,7 @@ public class PartController {
      * @code -1 未知错误
      * @code 41001 入参错误
      * @code 43003 未查到相关记录
-     * @ignore
+     *
      * @since 1.0.0
      */
     @GetMapping("/car-in/fuzzy")
@@ -100,7 +100,7 @@ public class PartController {
     /**
      * @param user 用户
      * @return 返回消息
-     * @ignore
+     *
      */
     @GetMapping("/user-get/add")
     public String addUserByGet(User user) {

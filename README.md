@@ -36,8 +36,14 @@ cloud-user
 ```shell script
 mvn clean javadoc:javadoc -Papi-doc -Ddoclint=none
 ```
-2. xxxx
-3. xxxx
+2. 下载源码
+```shell script
+mvn dependency:sources
+```
+3. 下载文档
+```shell script
+mvn dependency:resolve -Dclassifier=javadoc
+```
 
 -  使用说明
 
