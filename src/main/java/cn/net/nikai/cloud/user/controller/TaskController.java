@@ -36,7 +36,7 @@ public class TaskController {
      * @version 1.0.0
      * @date 2023/2/28
      * @since 1.0.0
-     *
+     * 
      */
     @GetMapping("/task/query")
     @ResponseBody
@@ -61,7 +61,7 @@ public class TaskController {
      * @code 42020 无效的用户备注;
      * @atom true
      * @since 1.0.0
-     *
+     * 
      */
     @PostMapping("/task/create")
     @ResponseBody
@@ -88,7 +88,7 @@ public class TaskController {
      * @code 42020 无效的用户备注;
      * @atom true
      * @since 1.0.0
-     *
+     * 
      */
     @GetMapping("/business/query-by-id")
     @ResponseBody
@@ -113,7 +113,7 @@ public class TaskController {
      * @code 42020 无效的用户备注;
      * @atom true
      * @since 1.0.0
-     *
+     * 
      */
     @PostMapping("/business/add")
     @ResponseBody
