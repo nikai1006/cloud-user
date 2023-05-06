@@ -33,7 +33,7 @@ public class TaskController {
      * @param id 任务ID
      * @return 目标任务
      * @author nikai
-     * @version 1.0.0
+     * @version 1.0.6
      * @date 2023/2/28
      * @since 1.6.0
      * 
@@ -52,7 +52,7 @@ public class TaskController {
      * @param task 新任务
      * @return 创建结果
      * @author nikai
-     * @version 1.0.0
+     * @version 1.8.0
      * @date 2023/2/28
      * @code 0 成功
      * @code 1 系统异常
@@ -78,7 +78,7 @@ public class TaskController {
      * @return 目标业务
      * @service 查询业务详情
      * @author nikai
-     * @version 1.0.0
+     * @version 1.7.0
      * @date 2023/2/28
      * @scene 新增用户;前端;商城业务
      * @code 0 成功
@@ -104,7 +104,7 @@ public class TaskController {
      * @param businessDto 业务
      * @return 操作结果
      * @author nikai
-     * @version 1.0.0
+     * @version 2.0.6
      * @date 2023/2/28
      * @code 0 成功
      * @code 1 系统异常
