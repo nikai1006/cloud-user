@@ -35,7 +35,7 @@ public class TaskController {
      * @author nikai
      * @version 1.0.0
      * @date 2023/2/28
-     * @since 1.0.0
+     * @since 1.6.0
      * 
      */
     @GetMapping("/task/query")
@@ -60,7 +60,7 @@ public class TaskController {
      * @code 2 操作繁忙
      * @code 42020 无效的用户备注;
      * @atom true
-     * @since 1.0.0
+     * @since 4.0.7
      * 
      */
     @PostMapping("/task/create")
@@ -87,7 +87,7 @@ public class TaskController {
      * @code 2 操作繁忙
      * @code 42020 无效的用户备注;
      * @atom true
-     * @since 1.0.0
+     * @since 2.0.6
      * 
      */
     @GetMapping("/business/query-by-id")
@@ -112,7 +112,7 @@ public class TaskController {
      * @code 2 操作繁忙
      * @code 42020 无效的用户备注;
      * @atom true
-     * @since 1.0.0
+     * @since 3.0.0
      * 
      */
     @PostMapping("/business/add")
@@ -129,7 +129,7 @@ public class TaskController {
      * @param businessNodeDto 业务节点
      * @return 操作结果
      * @author nikai
-     * @version 1.0.0
+     * @version 1.4.0
      * @date 2023/2/28
      * @code 0 成功
      * @code 1 系统异常

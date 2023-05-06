@@ -28,6 +28,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * @version 1.7.7
+ * @author 尼凯 nikai@nikai.ltd
  */
 @RestController
 @RequestMapping("/part")
@@ -77,7 +79,7 @@ public class PartController {
      * @scene 停车场系统相关业务调用
      * @type QUERY
      * @author 尼凯 nikai@0easy.com
-     * @version 1.0.0
+     * @version 1.3.0
      * @atom TRUE
      * @internal FALSE
      * @date 2019/9/30
@@ -86,7 +88,7 @@ public class PartController {
      * @code 41001 入参错误
      * @code 43003 未查到相关记录
      *
-     * @since 1.0.0
+     * @since 1.0.9
      */
     @GetMapping("/car-in/fuzzy")
     @ResponseBody

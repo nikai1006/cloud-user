@@ -68,7 +68,7 @@ public class UserController {
      * @service 根据用户id查询用户信息
      * @scene 新增用户;前端;商城业务
      * @param id 用户id
-     * @version 1.0.0
+     * @version 1.6.2
      * @author 尼凯 keni@aijiatui.com
      * @code 0 成功
      * @code 1 系统异常
@@ -96,7 +96,7 @@ public class UserController {
      * @scene 新增用户;前端;商城业务
      * @domain BASE
      * @type QUERY
-     * @version 1.0.0
+     * @version 1.4.5
      * @author 尼凯 keni@aijiatui.com
      * @return 单个用户信息
      * @code 0 成功
@@ -120,7 +120,7 @@ public class UserController {
      * @scene 前端;商城业务
      * @domain BASE
      * @type COMMAND
-     * @version 1.0.0
+     * @version 1.3.4
      * @author nikai
      * @return 消息体
      * @code 0 成功
@@ -145,7 +145,7 @@ public class UserController {
      * @scene 前端;商城业务
      * @param user 用户信息
      * @domain BASE
-     * @version 1.0.0
+     * @version 1.0.1
      * @author 尼凯 keni@aijiatui.com
      * @code 0 成功
      * @code 404
@@ -170,7 +170,7 @@ public class UserController {
      * @param user 用户基本信息
      * @domain BASE
      * @type COMMAND
-     * @version 1.0.0
+     * @version 1.2.0
      * @author keni@aijiatui.com
      * @code 0 成功
      * @code 1 系统异常
@@ -203,8 +203,10 @@ public class UserController {
      * @code 42020 无效的用户备注;
      * @internal TRUE
      * @deprecated DEPRECATED
+     * @version 1.3.3
      */
     @RequestMapping(value = "/api/test", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
+    @Deprecated
     public User testUser(@RequestParam List<User> users) {
 
         return null;
@@ -222,6 +224,7 @@ public class UserController {
      * @author 尼凯 keni@aijiatui.com
      * @atom FALSE
      * @internal
+     * @version 2.0.0
      * @deprecated DEPRECATED
      */
     @RequestMapping(value = "/api/test2/{myAge}", method = {RequestMethod.GET, RequestMethod.POST}, headers = {
@@ -238,6 +241,7 @@ public class UserController {
      * get user map
      *
      * @service get user map
+     * @version 3.1.2
      */
     @PostMapping("/user-map/get")
     public Map<String, User> getUserMap() {
@@ -248,6 +252,7 @@ public class UserController {
      * 列出用户
      *
      * @service 列出用户
+     * @version 1.1.1
      */
     @GetMapping("/all-users/list")
     public List<User> queryAllUsers(@RequestParam(defaultValue = "nikai") String filter) {
@@ -259,6 +264,7 @@ public class UserController {
      * get user map
      *
      * @service get user map
+     * @version 2.1.5
      */
     @PostMapping("/user-map/map")
     public HashMap<String, User> mapUsers(User user, Card card) {
@@ -270,6 +276,7 @@ public class UserController {
      *
      * @return all users
      * @service array all users
+     * @version 1.4.1
      */
     @GetMapping("/users-all/array")
     public ArrayList<User> listAllUsers(@RequestBody User user, @RequestPart Friend friend) {
@@ -281,6 +288,7 @@ public class UserController {
      *
      * @return 用户信息
      * @since servlet测试
+     * @version 2.0.5
      */
     @GetMapping("/servlet/test")
     public User createUser(HttpServletRequest request, HttpServletResponse response) {
@@ -303,6 +311,7 @@ public class UserController {
     /**
      * @param id
      * @return 结果
+     * @version 2.8.4
      */
     @PostMapping("/complex-type/got")
     public ServiceResponse<User>[] getComplexType(@RequestParam(required = false) BigInteger id) {
@@ -327,7 +336,7 @@ public class UserController {
      * @code 1 系统异常
      * @code 41003 参数失败
      * @code 2 操作繁忙
-     * @since 1.0.0
+     * @since 1.7.5
      */
     @GetMapping("/user/{name}/{id}")
     public ServiceResponse getUserByNameAndId(@PathVariable("name") String name, @PathVariable("id") String id) {
@@ -337,6 +346,7 @@ public class UserController {
     /**
      * 获取名字
      * @return 名字
+     * @version 1.9.1
      */
     @GetMapping("/name/get")
     public String getName() {
@@ -346,6 +356,7 @@ public class UserController {
     /**
      * 获取年龄
      * @return 年龄
+     * @version 3.0.2
      */
     @GetMapping("/age/get")
     public Integer getAge() {
@@ -355,6 +366,7 @@ public class UserController {
     /**
      * 获取性别
      * @return 性别
+     * @version 3.4.5
      */
     @GetMapping("/sex/get")
     public Boolean getSex() {
@@ -364,6 +376,7 @@ public class UserController {
     /**
      * 获取身高
      * @return 身高
+     * @version 1.0.5
      */
     @GetMapping("/height/get")
     public Double getHeight() {
