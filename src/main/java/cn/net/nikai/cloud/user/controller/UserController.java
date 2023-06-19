@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author nikai
  * @version 1.0.0
- * @domain BASE
+ * @domain BASE 基础平台
  * @category BASE
  */
 @RestController

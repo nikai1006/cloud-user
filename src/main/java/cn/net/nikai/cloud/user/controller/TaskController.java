@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author nikai
  * @version 1.0.0
  * @date 2023/2/28
- * @domain WORKFLOW
+ * @domain WORKFLOW 工作流
  * @since 1.0.0
  */
 @RestController
