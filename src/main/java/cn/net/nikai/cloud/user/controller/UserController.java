@@ -2,6 +2,7 @@ package cn.net.nikai.cloud.user.controller;
 
 import cn.net.nikai.cloud.user.dto.Card;
 import cn.net.nikai.cloud.user.dto.Friend;
+import cn.net.nikai.cloud.user.dto.LangTypeDto;
 import cn.net.nikai.cloud.user.dto.User;
 import com.oeasy.base.spi.ServiceResponse;
 import java.math.BigInteger;
@@ -202,8 +203,8 @@ public class UserController {
      * @code 2 操作繁忙
      * @code 42020 无效的用户备注;
      * @internal TRUE
-     * @deprecated DEPRECATED
      * @version 1.3.3
+     * @deprecated DEPRECATED
      */
     @RequestMapping(value = "/api/test", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
     @Deprecated
@@ -287,8 +288,8 @@ public class UserController {
      * servlet测试
      *
      * @return 用户信息
-     * @since servlet测试
      * @version 2.0.5
+     * @since servlet测试
      */
     @GetMapping("/servlet/test")
     public User createUser(HttpServletRequest request, HttpServletResponse response) {
@@ -345,6 +346,7 @@ public class UserController {
 
     /**
      * 获取名字
+     *
      * @return 名字
      * @version 1.9.1
      */
@@ -355,6 +357,7 @@ public class UserController {
 
     /**
      * 获取年龄
+     *
      * @return 年龄
      * @version 3.0.2
      */
@@ -365,6 +368,7 @@ public class UserController {
 
     /**
      * 获取性别
+     *
      * @return 性别
      * @version 3.4.5
      */
@@ -375,11 +379,87 @@ public class UserController {
 
     /**
      * 获取身高
+     *
      * @return 身高
      * @version 1.0.5
      */
     @GetMapping("/height/get")
     public Double getHeight() {
         return 18.35;
+    }
+
+    /**
+     * <pre>
+     *   基本类型和包装类型测试接口
+     *  </pre>
+     *
+     * @param typeDto 包装类型测试入参
+     * @return 包装类型
+     * @service 基本类型和包装类型测试接口
+     * @scene 测试;
+     * @type COMMAND
+     * @author 尼凯 nikai.zh@ccbft.com
+     * @version 1.0.0
+     * @atom TRUE
+     * @internal FALSE
+     * @date 2023/6/29
+     * @since 1.0.0
+     */
+    @PostMapping("/lang-type/compute")
+    @ResponseBody
+    public LangTypeDto computeType(@RequestBody LangTypeDto typeDto) {
+        return new LangTypeDto();
+    }
+
+    /**
+     * <pre>
+     *   测试基本类型(非包装)
+     *  </pre>
+     *
+     * @param id 编号
+     * @return 数量
+     * @service 测试基本类型(非包装)
+     * @scene 测试;
+     * @type QUERY
+     * @author 尼凯 nikai.zh@ccbft.com
+     * @version 1.0.0
+     * @atom TRUE
+     * @min 200 1
+     * @min id 0
+     * @max id 1000000
+     * @max 99999
+     * @internal FALSE
+     * @date 2023/6/29
+     * @since 1.0.0
+     */
+    @GetMapping("/num/get")
+    public int getNums(@RequestParam long id) {
+        return 1;
+    }
+
+    /**
+     * <pre>
+     *   测试基本类型(非包装)2
+     *  </pre>
+     *
+      * @param first 姓
+     * @return 体重
+     * @service 测试基本类型(非包装)2
+     * @scene 测试;
+     * @type QUERY
+     * @author 尼凯 nikai.zh@ccbft.com
+     * @version 1.0.0
+     * @atom TRUE
+     * @internal FALSE
+     * @date 2023/6/29
+     * @code 0 成功
+     * @code -1 未知错误
+     * @since 1.0.0
+     * @example first 尼
+     * @example 70.56
+     */
+    @GetMapping("/doub/get")
+    public double getDouble(@RequestParam char first) {
+        return 0.0;
     }
 }
