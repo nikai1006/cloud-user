@@ -19,7 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-        <api.scan.base.packages>cn.net.nikai.cloud.user.controller</api.scan.base.packages>
+        <api.scan.base.packages>cn.net.nikai.cloud.user</api.scan.base.packages>
     </properties>
     <dependencies>
         <dependency>
@@ -121,7 +121,7 @@
                             <docletArtifact>
                                 <groupId>org.and.api</groupId>
                                 <artifactId>api-doc-plugin</artifactId>
-                                <version>1.8.4</version>
+                                <version>1.8.5-SNAPSHOT</version>
                             </docletArtifact>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
                             <encoding>UTF-8</encoding>

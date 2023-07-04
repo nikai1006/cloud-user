@@ -60,7 +60,7 @@ public class PartController {
         @ApiResponse(code = 200, message = "success", examples = @Example(@ExampleProperty(mediaType = MediaType.APPLICATION_JSON_VALUE, value = "{\"name\":\"nikai\"}"))),
         @ApiResponse(code = 404, message = "not found", examples = @Example(@ExampleProperty(mediaType = MediaType.APPLICATION_JSON_VALUE, value = "{\"name\":\"nikai\"}")))
     })
-    public ArrayList<User> listAllUsers(@RequestBody User user, @RequestPart Friend friend) {
+    public ArrayList<User> findAllUsers(@RequestBody User user, @RequestPart Friend friend) {
         return null;
     }
 
