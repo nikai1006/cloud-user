@@ -121,7 +121,7 @@
                             <docletArtifact>
                                 <groupId>org.and.api</groupId>
                                 <artifactId>api-doc-plugin</artifactId>
-                                <version>1.8.5-SNAPSHOT</version>
+                                <version>1.8.6-SNAPSHOT</version>
                             </docletArtifact>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
                             <encoding>UTF-8</encoding>

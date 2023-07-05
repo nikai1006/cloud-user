@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +29,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @version 1.7.7
  * @author 尼凯 nikai@nikai.ltd
+ * @version 1.7.7
  */
 @RestController
 @RequestMapping("/part")
@@ -46,7 +47,6 @@ public class PartController {
      *
      * @return all users
      * @service array all users
-     *
      */
     @GetMapping("/users-all/array")
     @ApiOperation(value = "查询所有用户", notes = "查询全部用户(测试专用)")
@@ -87,21 +87,21 @@ public class PartController {
      * @code -1 未知错误
      * @code 41001 入参错误
      * @code 43003 未查到相关记录
-     *
      * @since 1.0.9
      */
     @GetMapping("/car-in/fuzzy")
     @ResponseBody
-    public ServiceResponse<List<String>> fuzzyQuery(@RequestParam String carNum, @RequestParam int matchNum,
-        @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date start,
-        @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date end) {
+    public ServiceResponse<List<String>> fuzzyQuery(
+        @RequestParam(required = false, defaultValue = "1234564", value = "卡号") String carNum,
+        @RequestParam int matchNum,
+        @RequestParam(value = "开始时间,格式yyyy-MM-dd HH:mm:ss") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date start,
+        @RequestParam(value = "结束时间，格式 yyyy-MM-dd HH:mm:ss") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") @NotNull Date end) {
         return null;
     }
 
     /**
      * @param user 用户
      * @return 返回消息
-     *
      */
     @GetMapping("/user-get/add")
     public String addUserByGet(User user) {
