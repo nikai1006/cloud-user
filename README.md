@@ -34,7 +34,7 @@ cloud-user
 
 1. 构建命令 
 ```shell script
-mvn clean javadoc:javadoc -Papi-doc -Ddoclint=none
+mvnd clean javadoc:javadoc -Papi-doc -Ddoclint=none
 ```
 2. 下载源码
 ```shell script
