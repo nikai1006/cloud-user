@@ -92,10 +92,10 @@ public class PartController {
     @GetMapping("/car-in/fuzzy")
     @ResponseBody
     public ServiceResponse<List<String>> fuzzyQuery(
-        @RequestParam(required = false, defaultValue = "1234564", value = "卡号") String carNum,
+        @RequestParam(required = false, defaultValue = "1234564", value = "carNo") String carNum,
         @RequestParam int matchNum,
-        @RequestParam(value = "开始时间,格式yyyy-MM-dd HH:mm:ss") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date start,
-        @RequestParam(value = "结束时间，格式 yyyy-MM-dd HH:mm:ss") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") @NotNull Date end) {
+        @RequestParam(value = "startTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date start,
+        @RequestParam(value = "endTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") @NotNull Date end) {
         return null;
     }
 
