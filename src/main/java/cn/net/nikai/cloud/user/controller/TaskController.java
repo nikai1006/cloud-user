@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * <pre>
@@ -36,7 +37,6 @@ public class TaskController {
      * @version 1.0.6
      * @date 2023/2/28
      * @since 1.6.0
-     * 
      */
     @GetMapping("/task/query")
     @ResponseBody
@@ -61,7 +61,6 @@ public class TaskController {
      * @code 42020 无效的用户备注;
      * @atom true
      * @since 4.0.7
-     * 
      */
     @PostMapping("/task/create")
     @ResponseBody
@@ -88,7 +87,6 @@ public class TaskController {
      * @code 42020 无效的用户备注;
      * @atom true
      * @since 2.0.6
-     * 
      */
     @GetMapping("/business/query-by-id")
     @ResponseBody
@@ -113,7 +111,6 @@ public class TaskController {
      * @code 42020 无效的用户备注;
      * @atom true
      * @since 3.0.0
-     * 
      */
     @PostMapping("/business/add")
     @ResponseBody
@@ -141,7 +138,55 @@ public class TaskController {
      */
     @PostMapping("/buniess-node/create")
     @ResponseBody
-    public ServiceResponse addBusinessNode(@RequestBody BusinessNodeDto businessNodeDto){
+    public ServiceResponse addBusinessNode(@RequestBody BusinessNodeDto businessNodeDto) {
         return new ServiceResponse();
+    }
+
+    /**
+     * <pre>
+     * 上传单个文件
+     *  </pre>
+     *
+     * @param file 单个文件
+     * @return 操作结果
+     * @author nikai
+     * @version 1.4.0
+     * @date 2023/2/28
+     * @code 0 成功
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
+     * @atom true
+     * @since 1.0.0
+     */
+    @PostMapping("/file/upload")
+    @ResponseBody
+    public ServiceResponse<String> uploadFile(@RequestParam MultipartFile file) {
+        return new ServiceResponse(file.getOriginalFilename());
+    }
+
+    /**
+     * <pre>
+     * 上传多个文件
+     *  </pre>
+     *
+     * @param files 多个文件
+     * @return 操作结果
+     * @author nikai
+     * @version 1.4.0
+     * @date 2023/2/28
+     * @code 0 成功
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
+     * @atom true
+     * @since 1.0.0
+     */
+    @PostMapping("/files/upload")
+    @ResponseBody
+    public ServiceResponse<Integer> uploadFiles(@RequestParam MultipartFile[] files) {
+        return new ServiceResponse<>(files.length);
     }
 }
