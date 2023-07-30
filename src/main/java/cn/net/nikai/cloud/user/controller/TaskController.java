@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -144,7 +145,7 @@ public class TaskController {
 
     /**
      * <pre>
-     * 上传单个文件
+     * 上传单个文件RequestPart
      *  </pre>
      *
      * @param file 单个文件
@@ -162,13 +163,14 @@ public class TaskController {
      */
     @PostMapping("/file/upload")
     @ResponseBody
-    public ServiceResponse<String> uploadFile(@RequestParam MultipartFile file) {
-        return new ServiceResponse(file.getOriginalFilename());
+//    @ApiOperation(value = "上传单个文件RequestPart", notes = "上传单个文件RequestPart描述")
+    public org.and.api.base.spi.ServiceResponse<String> uploadFile(@RequestPart MultipartFile file) {
+        return new org.and.api.base.spi.ServiceResponse(file.getOriginalFilename());
     }
 
     /**
      * <pre>
-     * 上传多个文件
+     * 上传多个文件RequestPart
      *  </pre>
      *
      * @param files 多个文件
@@ -186,7 +188,58 @@ public class TaskController {
      */
     @PostMapping("/files/upload")
     @ResponseBody
-    public ServiceResponse<Integer> uploadFiles(@RequestParam MultipartFile[] files) {
-        return new ServiceResponse<>(files.length);
+//    @ApiOperation(value = "上传多个文件RequestPart", notes = "上传多个文件RequestPart描述")
+    public org.and.api.base.spi.ServiceResponse<Integer> uploadFiles(@RequestPart MultipartFile[] files) {
+        return new org.and.api.base.spi.ServiceResponse<>(files.length);
+    }
+
+    /**
+     * <pre>
+     * 上传单个文件RequestParam
+     *  </pre>
+     *
+     * @param file 单个文件
+     * @return 操作结果
+     * @author nikai
+     * @version 1.4.0
+     * @date 2023/2/28
+     * @code 0 成功
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
+     * @atom true
+     * @since 1.0.0
+     */
+    @PostMapping("/file1/upload")
+    @ResponseBody
+//    @ApiOperation(value = "上传单个文件RequestParam", notes = "上传单个文件RequestParam描述")
+    public org.and.api.base.spi.ServiceResponse<String> uploadFile1(@RequestParam MultipartFile file) {
+        return new org.and.api.base.spi.ServiceResponse(file.getOriginalFilename());
+    }
+
+    /**
+     * <pre>
+     * 上传多个文件RequestParam
+     *  </pre>
+     *
+     * @param files 多个文件
+     * @return 操作结果
+     * @author nikai
+     * @version 1.4.0
+     * @date 2023/2/28
+     * @code 0 成功
+     * @code 1 系统异常
+     * @code 41003 参数失败
+     * @code 2 操作繁忙
+     * @code 42020 无效的用户备注;
+     * @atom true
+     * @since 1.0.0
+     */
+    @PostMapping("/files1/upload")
+    @ResponseBody
+//    @ApiOperation(value = "上传多个文件RequestParam", notes = "上传多个文件RequestParam描述")
+    public org.and.api.base.spi.ServiceResponse<Integer> uploadFiles1(@RequestParam MultipartFile[] files) {
+        return new org.and.api.base.spi.ServiceResponse<>(files.length);
     }
 }

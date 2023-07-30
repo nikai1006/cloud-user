@@ -52,6 +52,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.20.3</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.5</version>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -121,7 +131,7 @@
                             <docletArtifact>
                                 <groupId>org.and.api</groupId>
                                 <artifactId>api-doc-plugin</artifactId>
-                                <version>1.9.2</version>
+                                <version>1.9.3-SNAPSHOT</version>
                             </docletArtifact>
                             <useStandardDocletOptions>false</useStandardDocletOptions>
                             <encoding>UTF-8</encoding>
