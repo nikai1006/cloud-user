@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author 尼凯 nikai@nikai.ltd
  * @version 1.7.7
+ * @unignore
  */
 @RestController
 @RequestMapping("/part")

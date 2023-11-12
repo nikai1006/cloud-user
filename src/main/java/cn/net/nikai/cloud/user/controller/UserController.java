@@ -55,6 +55,7 @@ public class UserController {
      * @author 尼凯 keni@aijiatui.com
      * @return 用户信息列表
      * @atom false
+     * @unignore
      */
     @GetMapping(value = "/all-users/query")
     @ResponseBody
@@ -78,6 +79,7 @@ public class UserController {
      * @code 42020 无效的用户备注;
      * @example id 99
      * @default id 77
+     * @unignore
      */
     @GetMapping(value = "/user/query", params = {"id=1", "id"}, headers = {"Origin"}, consumes = {
         MediaType.TEXT_HTML_VALUE, MediaType.TEXT_PLAIN_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE,
@@ -105,6 +107,7 @@ public class UserController {
      * @code 41003 参数失败
      * @code 2 操作繁忙
      * @code 42020 无效的用户备注;
+     * @unignore
      */
     @GetMapping("/user/find")
     @ResponseBody
@@ -131,6 +134,7 @@ public class UserController {
      * @code 42020 无效的用户备注;
      * @rollback cn.net.nikai.cloud.user.controller.UserController.delUser
      * @callback cn.net.nikai.cloud.user.controller.UserController.findUser
+     * @unignore
      */
     @PostMapping(value = "/user/add")
     @ResponseBody
@@ -155,6 +159,7 @@ public class UserController {
      * @code 2 操作繁忙
      * @code 42020 无效的用户备注;
      * @callback cn.net.nikai.cloud.user.controller.UserController.findUser
+     * @unignore
      */
     @PostMapping("/user/update")
     @ResponseBody
@@ -180,6 +185,7 @@ public class UserController {
      * @code 42020 无效的用户备注;
      * @callback cn.net.nikai.cloud.user.controller.UserController.findUser
      * @deprecated not safe
+     * @unignore
      */
     @PostMapping("/user/delete")
     @ResponseBody
@@ -205,6 +211,7 @@ public class UserController {
      * @internal TRUE
      * @version 1.3.3
      * @deprecated DEPRECATED
+     * @unignore
      */
     @RequestMapping(value = "/api/test", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
     @Deprecated
@@ -227,6 +234,7 @@ public class UserController {
      * @internal
      * @version 2.0.0
      * @deprecated DEPRECATED
+     * @unignore
      */
     @RequestMapping(value = "/api/test2/{myAge}", method = {RequestMethod.GET, RequestMethod.POST}, headers = {
         "name=nikai",
@@ -243,6 +251,7 @@ public class UserController {
      *
      * @service get user map
      * @version 3.1.2
+     * @unignore
      */
     @PostMapping("/user-map/get")
     public Map<String, User> getUserMap() {
@@ -254,6 +263,7 @@ public class UserController {
      *
      * @service 列出用户
      * @version 1.1.1
+     * @unignore
      */
     @GetMapping("/all-users/list")
     public List<User> queryAllUsers(@RequestParam(defaultValue = "nikai") String filter) {
@@ -266,6 +276,7 @@ public class UserController {
      *
      * @service get user map
      * @version 2.1.5
+     * @unignore
      */
     @PostMapping("/user-map/map")
     public HashMap<String, User> mapUsers(User user, Card card) {
@@ -278,6 +289,7 @@ public class UserController {
      * @return all users
      * @service array all users
      * @version 1.4.1
+     * @unignore
      */
     @GetMapping("/users-all/array")
     public ArrayList<User> listAllUsers(@RequestBody User user, @RequestPart Friend friend) {
@@ -290,6 +302,7 @@ public class UserController {
      * @return 用户信息
      * @version 2.0.5
      * @since servlet测试
+     * @unignore
      */
     @GetMapping("/servlet/test")
     public User createUser(HttpServletRequest request, HttpServletResponse response) {
@@ -302,6 +315,7 @@ public class UserController {
      * @param ids 用户id集合
      * @return 获取用户数组
      * @service 获取用户数组
+     * @unignore
      */
     @GetMapping("/user-array/get")
     @ResponseBody
@@ -313,6 +327,7 @@ public class UserController {
      * @param id
      * @return 结果
      * @version 2.8.4
+     * @unignore
      */
     @PostMapping("/complex-type/got")
     public ServiceResponse<User>[] getComplexType(@RequestParam(required = false) BigInteger id) {
@@ -338,6 +353,7 @@ public class UserController {
      * @code 41003 参数失败
      * @code 2 操作繁忙
      * @since 1.7.5
+     * @unignore
      */
     @GetMapping("/user/{name}/{id}")
     public ServiceResponse getUserByNameAndId(@PathVariable("name") String name, @PathVariable("id") String id) {
@@ -349,6 +365,7 @@ public class UserController {
      *
      * @return 名字
      * @version 1.9.1
+     * @unignore
      */
     @GetMapping("/name/get")
     public String getName() {
@@ -360,6 +377,7 @@ public class UserController {
      *
      * @return 年龄
      * @version 3.0.2
+     * @unignore
      */
     @GetMapping("/age/get")
     public Integer getAge() {
@@ -371,6 +389,7 @@ public class UserController {
      *
      * @return 性别
      * @version 3.4.5
+     * @unignore
      */
     @GetMapping("/sex/get")
     public Boolean getSex() {
@@ -382,6 +401,7 @@ public class UserController {
      *
      * @return 身高
      * @version 1.0.5
+     * @unignore
      */
     @GetMapping("/height/get")
     public Double getHeight() {
@@ -431,6 +451,7 @@ public class UserController {
      * @internal FALSE
      * @date 2023/6/29
      * @since 1.0.0
+     * @unignore
      */
     @GetMapping("/num/get")
     public int getNums(@RequestParam long id) {
@@ -457,6 +478,7 @@ public class UserController {
      * @since 1.0.0
      * @example first 尼
      * @example 70.56
+     * @unignore
      */
     @GetMapping("/doub/get")
     public double getDouble(@RequestParam char first) {
