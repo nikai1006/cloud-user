@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0.0
  * @domain BASE 基础平台
  * @category BASE
+ * @unignore
  */
 @RestController
 @RequestMapping("/ai")

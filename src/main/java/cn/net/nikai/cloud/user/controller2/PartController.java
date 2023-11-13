@@ -31,12 +31,17 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author 尼凯 nikai@nikai.ltd
  * @version 1.7.7
- * @unignore
  */
 @RestController
 @RequestMapping("/part")
 public class PartController {
 
+    /**
+     * @unignore
+     * @param user
+     * @param card
+     * @return
+     */
     @PostMapping(value = "/user-map/map", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,
         MediaType.APPLICATION_FORM_URLENCODED_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public HashMap<String, User> mapUsers(User user, @RequestPart Card card) {
@@ -48,6 +53,7 @@ public class PartController {
      *
      * @return all users
      * @service array all users
+     * @unignore
      */
     @GetMapping("/users-all/array")
     @ApiOperation(value = "查询所有用户", notes = "查询全部用户(测试专用)")
@@ -89,6 +95,7 @@ public class PartController {
      * @code 41001 入参错误
      * @code 43003 未查到相关记录
      * @since 1.0.9
+     * @unignore
      */
     @GetMapping("/car-in/fuzzy")
     @ResponseBody
@@ -103,12 +110,19 @@ public class PartController {
     /**
      * @param user 用户
      * @return 返回消息
+     * @unignore
      */
     @GetMapping("/user-get/add")
     public String addUserByGet(User user) {
         return null;
     }
 
+
+    /**
+     * @param user
+     * @return
+     * @unignore
+     */
     @ApiImplicitParams(
         {
             @ApiImplicitParam()
