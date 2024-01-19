@@ -3,7 +3,10 @@ package cn.net.nikai.cloud.user.controller;
 import cn.net.nikai.cloud.user.dto.Card;
 import cn.net.nikai.cloud.user.dto.Friend;
 import cn.net.nikai.cloud.user.dto.LangTypeDto;
+import cn.net.nikai.cloud.user.dto.Rank;
+import cn.net.nikai.cloud.user.dto.Sort;
 import cn.net.nikai.cloud.user.dto.User;
+import com.oeasy.base.spi.Page;
 import com.oeasy.base.spi.ServiceResponse;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -33,7 +36,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0.0
  * @domain BASE 基础平台
  * @category BASE
- * @unignore
  */
 @RestController
 @RequestMapping("/ai")
@@ -211,8 +213,8 @@ public class UserController {
      * @code 42020 无效的用户备注;
      * @internal TRUE
      * @version 1.3.3
-     * @deprecated DEPRECATED
      * @unignore
+     * @deprecated DEPRECATED
      */
     @RequestMapping(value = "/api/test", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
     @Deprecated
@@ -234,8 +236,8 @@ public class UserController {
      * @atom FALSE
      * @internal
      * @version 2.0.0
-     * @deprecated DEPRECATED
      * @unignore
+     * @deprecated DEPRECATED
      */
     @RequestMapping(value = "/api/test2/{myAge}", method = {RequestMethod.GET, RequestMethod.POST}, headers = {
         "name=nikai",
@@ -302,8 +304,8 @@ public class UserController {
      *
      * @return 用户信息
      * @version 2.0.5
-     * @since servlet测试
      * @unignore
+     * @since servlet测试
      */
     @GetMapping("/servlet/test")
     public User createUser(HttpServletRequest request, HttpServletResponse response) {
@@ -353,8 +355,8 @@ public class UserController {
      * @code 1 系统异常
      * @code 41003 参数失败
      * @code 2 操作繁忙
-     * @since 1.7.5
      * @unignore
+     * @since 1.7.5
      */
     @GetMapping("/user/{name}/{id}")
     public ServiceResponse getUserByNameAndId(@PathVariable("name") String name, @PathVariable("id") String id) {
@@ -424,6 +426,7 @@ public class UserController {
      * @atom TRUE
      * @internal FALSE
      * @date 2023/6/29
+     * @unignore
      * @since 1.0.0
      */
     @PostMapping("/lang-type/compute")
@@ -451,8 +454,8 @@ public class UserController {
      * @max 99999
      * @internal FALSE
      * @date 2023/6/29
-     * @since 1.0.0
      * @unignore
+     * @since 1.0.0
      */
     @GetMapping("/num/get")
     public int getNums(@RequestParam long id) {
@@ -464,7 +467,7 @@ public class UserController {
      *   测试基本类型(非包装)2
      *  </pre>
      *
-      * @param first 姓
+     * @param first 姓
      * @return 体重
      * @service 测试基本类型(非包装)2
      * @scene 测试;
@@ -476,13 +479,39 @@ public class UserController {
      * @date 2023/6/29
      * @code 0 成功
      * @code -1 未知错误
-     * @since 1.0.0
      * @example first 尼
      * @example 70.56
      * @unignore
+     * @since 1.0.0
      */
     @GetMapping("/doub/get")
     public double getDouble(@RequestParam char first) {
         return 0.0;
+    }
+
+    /**
+     * @return
+     * @unignore
+     */
+    @GetMapping("/users-by-page/query")
+    @ResponseBody
+    public ServiceResponse<Page<User>> queryUserByPage() {
+        return null;
+    }
+
+    /**
+     * @unignore
+     * @return
+     */
+    @GetMapping("/user-by-sort/find")
+    @ResponseBody
+    public ServiceResponse<Sort<String, User>> sortUsers() {
+        return null;
+    }
+
+    @GetMapping("/cards-rank/query")
+    @ResponseBody
+    public ServiceResponse<Rank<String, User, Card>> rankCards() {
+        return null;
     }
 }
