@@ -2,6 +2,7 @@ package cn.net.nikai.cloud.user.controller;
 
 import cn.net.nikai.cloud.user.dto.Card;
 import cn.net.nikai.cloud.user.dto.Friend;
+import cn.net.nikai.cloud.user.dto.Goods;
 import cn.net.nikai.cloud.user.dto.LangTypeDto;
 import cn.net.nikai.cloud.user.dto.Rank;
 import cn.net.nikai.cloud.user.dto.Sort;
@@ -500,8 +501,8 @@ public class UserController {
     }
 
     /**
-     * @unignore
      * @return
+     * @unignore
      */
     @GetMapping("/user-by-sort/find")
     @ResponseBody
@@ -512,6 +513,36 @@ public class UserController {
     @GetMapping("/cards-rank/query")
     @ResponseBody
     public ServiceResponse<Rank<String, User, Card>> rankCards() {
+        return null;
+    }
+
+    /**
+     * 测试复杂类型及待遇context-path的tag属性
+     *
+     * @return
+     * @context-path /goods
+     */
+    @GetMapping("/my-good/find")
+    @ResponseBody
+    public ServiceResponse<Goods> queryGoods() {
+        return null;
+    }
+
+    /**
+     * 多个参数顺序测试
+     *
+     * @param e 1
+     * @param f 2
+     * @param d 3
+     * @param c 4
+     * @param b 5
+     * @param a 6
+     * @return
+     */
+    @GetMapping("/multi-param-orinal/test")
+    @ResponseBody
+    public ServiceResponse multiParams(@RequestParam String e, @RequestParam Integer f, @RequestParam String d,
+        @RequestParam Long c, @RequestParam Boolean b, @RequestParam Double a) {
         return null;
     }
 }
