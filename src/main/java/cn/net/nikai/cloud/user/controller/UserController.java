@@ -510,6 +510,10 @@ public class UserController {
         return null;
     }
 
+    /**
+     * @unignore
+     * @return
+     */
     @GetMapping("/cards-rank/query")
     @ResponseBody
     public ServiceResponse<Rank<String, User, Card>> rankCards() {
@@ -537,6 +541,7 @@ public class UserController {
      * @param c 4
      * @param b 5
      * @param a 6
+     * @unignore
      * @return
      */
     @GetMapping("/multi-param-orinal/test")
