@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @domain WORKFLOW 工作流
  * @since 1.0.0
  * @unignore
+ * @context-path /order
  */
 @RestController
 public class TaskController {
