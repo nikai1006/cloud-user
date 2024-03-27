@@ -19,8 +19,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-<!--        <api.scan.base.packages>cn.net.nikai.cloud.user</api.scan.base.packages>-->
-        <api.scan.base.packages>cn.net.nikai.cloud.user.controller.multi</api.scan.base.packages>
+        <api.scan.base.packages>cn.net.nikai.cloud.user</api.scan.base.packages>
+<!--        <api.scan.base.packages>cn.net.nikai.cloud.user.controller.multi</api.scan.base.packages>-->
     </properties>
     <dependencies>
 <!--        &lt;!&ndash; log4j2日志门面 &ndash;&gt;-->

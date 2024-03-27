@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -546,8 +547,8 @@ public class UserController {
      */
     @GetMapping("/multi-param-orinal/test")
     @ResponseBody
-    public ServiceResponse multiParams(@RequestParam String e, @RequestParam Integer f, @RequestParam String d,
-        @RequestParam Long c, @RequestParam Boolean b, @RequestParam Double a) {
+    public ServiceResponse multiParams(@RequestParam String e, @RequestParam("x") Integer f, @RequestParam String d,
+        @RequestParam Long c, @RequestParam Boolean b, @RequestHeader("TOKEN") Double a) {
         return null;
     }
 }
